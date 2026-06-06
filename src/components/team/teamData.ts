@@ -141,8 +141,8 @@ He plays a key role in coordination between engineers, workers, and management t
     },
 
     {
-        id: "hana-gebre",
-        name: "Hana Gebre",
+        id: "Unknown",
+        name: "unknown",
         role: "Finance Officer / Cashier",
         phone: "0923674790",
         education: "BSc in Management – Jimma University",
@@ -167,7 +167,7 @@ He plays a key role in coordination between engineers, workers, and management t
 
         image: "/images/casher.jpg",
 
-        bio: `Hana Gebre is the Finance Officer of Sadan Infrastructure PLC with over 5 years of experience.
+        bio: `Unknown is the Finance Officer of Sadan Infrastructure PLC with over 5 years of experience.
 
 She manages daily financial operations, records, and reporting. She ensures accuracy, transparency, and accountability in financial activities.`,
     },

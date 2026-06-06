@@ -20,7 +20,7 @@ const ContactInfo = () => {
             </h2>
 
             <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
-                Contact Sadan Infrastructure PLC for inquiries,
+                Contact GSS Infrastructure PLC for inquiries,
                 partnerships, project discussions, or career opportunities.
             </p>
 
@@ -52,7 +52,7 @@ const ContactInfo = () => {
                     <div className="min-w-0">
                         <h3 className="font-semibold text-gray-800">Email</h3>
                         <p className="text-gray-600 text-sm sm:text-base break-all">
-                            info@sadaninfrastructure.com
+                            info@GSSinfrastructure.com
                         </p>
                     </div>
                 </div>

@@ -27,7 +27,7 @@ export const team = [
 
         image: "/images/sebona.jpg",
 
-        bio: `Engineer Sebona Haile is the Founder and General Manager of Sadan Infrastructure PLC.
+        bio: `Engineer Sebona Haile is the Founder and General Manager of GSS Infrastructure PLC.
 
 He has over 10 years of experience in civil engineering, project management, infrastructure development, and technical systems. He is also skilled in full stack development and graphic design.
 
@@ -35,7 +35,7 @@ He has demonstrated academic excellence from an early stage, achieving a 4.0 GPA
 
 He has practical field experience including data collection for the Addis Ababa Transport Bureau and WFTR projects. He is IT certified and experienced in multiple technical roles.
 
-His leadership and multidisciplinary skills drive the vision of Sadan Infrastructure PLC.`,
+His leadership and multidisciplinary skills drive the vision of GSS Infrastructure PLC.`,
     },
 
     {
@@ -56,7 +56,7 @@ His leadership and multidisciplinary skills drive the vision of Sadan Infrastruc
         ],
 
         highlights: [
-            "Co-founder of Sadan Infrastructure PLC",
+            "Co-founder of GSS Infrastructure PLC",
             "Structural design specialist",
             "Experienced in building supervision",
             "Ensures safety and durability of structures",
@@ -65,7 +65,7 @@ His leadership and multidisciplinary skills drive the vision of Sadan Infrastruc
 
         image: "/images/ayansa.jpg",
 
-        bio: `Engineer Ayanasa Abdisa is a Co-Founder of Sadan Infrastructure PLC and an experienced Structural Engineer.
+        bio: `Engineer Ayanasa Abdisa is a Co-Founder of GSS Infrastructure PLC and an experienced Structural Engineer.
 
 He has over 8 years of experience in structural design, analysis, and construction supervision. He has contributed to residential, commercial, and infrastructure projects.
 
@@ -90,7 +90,7 @@ He specializes in reinforced concrete, steel structures, and foundation systems.
         ],
 
         highlights: [
-            "Co-founder of Sadan Infrastructure PLC",
+            "Co-founder of GSS Infrastructure PLC",
             "Modern architectural design expert",
             "Experienced in building visualization",
             "Strong design and planning skills",
@@ -99,7 +99,7 @@ He specializes in reinforced concrete, steel structures, and foundation systems.
 
         image: "/images/guta.jpg",
 
-        bio: `Engineer Guta Jiregna is a Co-Founder and Architectural Engineer at Sadan Infrastructure PLC.
+        bio: `Engineer Guta Jiregna is a Co-Founder and Architectural Engineer at GSS Infrastructure PLC.
 
 He has over 7 years of experience in architectural design and planning. He focuses on creating modern and functional building designs.
 
@@ -124,7 +124,7 @@ He specializes in architectural visualization and construction documentation.`,
         ],
 
         highlights: [
-            "Project Manager at Sadan Infrastructure PLC",
+            "Project Manager at GSS Infrastructure PLC",
             "Manages multiple construction projects",
             "Strong leadership in site operations",
             "Ensures timely project delivery",
@@ -133,7 +133,7 @@ He specializes in architectural visualization and construction documentation.`,
 
         image: "/images/girma.jpg",
 
-        bio: `Girma Haile is a Project Manager at Sadan Infrastructure PLC with over 6 years of experience.
+        bio: `Girma Haile is a Project Manager at GSS Infrastructure PLC with over 6 years of experience.
 
 He manages construction projects from planning to completion, ensuring quality and efficiency.
 
@@ -158,7 +158,7 @@ He coordinates engineers, workers, and management teams for smooth project execu
         ],
 
         highlights: [
-            "Finance Officer at Sadan Infrastructure PLC",
+            "Finance Officer at GSS Infrastructure PLC",
             "Manages daily financial records",
             "Ensures transparency and accuracy",
             "Supports budgeting and reporting",
@@ -167,7 +167,7 @@ He coordinates engineers, workers, and management teams for smooth project execu
 
         image: "/images/casher.jpg",
 
-        bio: `The Finance Officer of Sadan Infrastructure PLC has over 5 years of experience in financial administration.
+        bio: `The Finance Officer of GSS Infrastructure PLC has over 5 years of experience in financial administration.
 
 Responsible for daily financial operations, record keeping, and reporting, ensuring accuracy and transparency in all financial activities.`,
     },

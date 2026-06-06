@@ -22,16 +22,16 @@ export const team = [
     },
     {
         name: "Girma Haile",
-        role: "Project Manager",
+        role: "project manager",
         phone: "0920345682",
         education: "BSc in Management – Addis Ababa University",
         image: "/images/girma.jpg",
     },
     {
-        name: "Mulu Teshome",
-        role: "Finance Officer / Cashier",
+        name: "unknown...",
+        role: " Finance Cashier",
         phone: "0923674790",
-        education: "BSc in Management – Jimma University",
-        image: "/images/cashier.jpg",
+        education: "BSc in Management – jimma University",
+        image: "/images/casher.jpg",
     },
 ];

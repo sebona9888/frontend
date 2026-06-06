@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const TeamHero = () => {
     return (
-        <section className="relative min-h-[70vh] md:h-screen w-full flex items-center justify-center px-4 sm:px-6 pt-20 overflow-hidden">
+        <section className="relative min-h-[60vh] sm:min-h-[70vh] md:h-screen w-full flex items-center justify-center px-4 sm:px-6 pt-16 md:pt-20 overflow-hidden">
 
             {/* BACKGROUND IMAGE */}
             <img
@@ -11,16 +11,15 @@ const TeamHero = () => {
                 className="absolute inset-0 w-full h-full object-cover object-[50%_20%] z-0 brightness-110 md:brightness-125 contrast-105 md:contrast-110"
             />
 
-            {/* SINGLE CLEAN OVERLAY */}
+            {/* OVERLAY */}
             <div className="absolute inset-0 bg-[#002B5B]/30 md:bg-[#002B5B]/20 z-10"></div>
 
-            {/* GLOW EFFECT (RESPONSIVE) */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[250px] sm:w-[350px] md:w-[500px] h-[250px] sm:h-[350px] md:h-[500px] bg-[#D28E28]/10 blur-3xl rounded-full z-10"></div>
+            {/* GLOW EFFECT */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[220px] sm:w-[300px] md:w-[500px] h-[220px] sm:h-[300px] md:h-[500px] bg-[#D28E28]/10 blur-3xl rounded-full z-10"></div>
 
             {/* CONTENT */}
             <div className="relative z-20 text-center max-w-3xl mx-auto">
 
-                {/* TITLE */}
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -30,15 +29,13 @@ const TeamHero = () => {
                     Our Team
                 </motion.h1>
 
-                {/* DIVIDER */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="w-16 sm:w-20 h-1 bg-[#D28E28] mx-auto my-5 sm:my-6 rounded-full"
+                    className="w-14 sm:w-16 md:w-20 h-1 bg-[#D28E28] mx-auto my-4 sm:my-5 md:my-6 rounded-full"
                 />
 
-                {/* DESCRIPTION */}
                 <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}

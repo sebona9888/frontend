@@ -4,6 +4,7 @@ import CompanyIntro from "../components/about/CompanyIntro";
 import MissionVision from "../components/about/MissionVision";
 import WhyChooseUs from "../components/about/WhyChooseUs";
 
+
 const About = () => {
     useEffect(() => {
         document.title = "About Us | GGS Infrastructure PLC";

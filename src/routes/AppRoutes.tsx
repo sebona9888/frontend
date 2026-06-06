@@ -17,23 +17,30 @@ import ElectricalInstallation from "../pages/service-details/ElectricalInstallat
 import MachineryRental from "../pages/service-details/MachineryRental";
 import EngineeringConsultancy from "../pages/service-details/EngineeringConsultancy";
 
-import ProjectDetails from "../pages/ProjectDetails"; // ✅ ADD THIS
+import ProjectDetails from "../pages/ProjectDetails";
 import Team from "../pages/Team";
+import TeamMember from "../pages/TeamMember";
+
 const AppRoutes = () => {
     return (
         <>
             <Navbar />
 
             <Routes>
+                {/* MAIN PAGES */}
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/projects" element={<Projects />} />
-                <Route path="/projects/:slug" element={<ProjectDetails />} /> {/* ✅ ADD THIS */}
+                <Route path="/projects/:slug" element={<ProjectDetails />} />
                 <Route path="/careers" element={<Careers />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/team" element={<Team />} />
 
+                {/* TEAM */}
+                <Route path="/team" element={<Team />} />
+                <Route path="/team/:id" element={<TeamMember />} />
+
+                {/* SERVICES DETAILS */}
                 <Route path="/services/road-construction" element={<RoadConstruction />} />
                 <Route path="/services/building-construction" element={<BuildingConstruction />} />
                 <Route path="/services/water-infrastructure" element={<WaterInfrastructure />} />

@@ -25,17 +25,13 @@ const TeamCard = ({ member, index, onClick }: Props) => {
             className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer
             hover:shadow-xl transition active:scale-[0.98]"
         >
-
-            {/* IMAGE WRAPPER */}
-            <div className="h-60 sm:h-64 md:h-72 lg:h-80 w-full bg-gray-100 flex items-center justify-center overflow-hidden">
-
+            {/* IMAGE */}
+            <div className="h-56 sm:h-64 md:h-72 lg:h-80 w-full overflow-hidden bg-gray-100">
                 <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-contain sm:object-contain md:object-contain
-                    transition duration-300 hover:scale-105"
+                    className="w-full h-full object-cover object-center sm:object-[center_20%] hover:scale-105 transition duration-300"
                 />
-
             </div>
 
             {/* INFO */}
@@ -50,7 +46,6 @@ const TeamCard = ({ member, index, onClick }: Props) => {
                 </p>
 
             </div>
-
         </motion.div>
     );
 };

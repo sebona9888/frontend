@@ -35,8 +35,7 @@ const TeamCard = ({ member, index, onClick }: Props) => {
                     className="
                         w-full h-full
                         object-cover
-                        object-center sm:object-[center_20%]
-                        md:object-center
+                        object-[50%_15%]
                         hover:scale-105
                         transition duration-300
                     "

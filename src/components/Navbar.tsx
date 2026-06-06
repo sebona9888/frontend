@@ -31,7 +31,7 @@ const Navbar = () => {
                         </div>
 
                         <h1 className="text-white font-bold text-base md:text-lg tracking-wide">
-                            GGS <span className="text-[#D28E28]">INFRA</span>
+                            GGS <span className="text-[#D28E28]">INFRASTRUCTURE</span>
                         </h1>
                     </div>
 

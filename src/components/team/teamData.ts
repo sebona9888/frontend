@@ -29,11 +29,11 @@ export const team = [
 
         bio: `Engineer Sebona Haile is the Founder and General Manager of Sadan Infrastructure PLC.
 
-He has over 10 years of experience in civil engineering, project management, infrastructure development, and technical systems. He is also skilled in full stack development and graphic design, combining engineering and digital expertise.
+He has over 10 years of experience in civil engineering, project management, infrastructure development, and technical systems. He is also skilled in full stack development and graphic design.
 
 He has demonstrated academic excellence from an early stage, achieving a 4.0 GPA in matric and receiving recognition from the West Shoa Education Office.
 
-He has practical field experience including data collection for the Addis Ababa Transport Bureau and WFTR projects. He is also IT certified and experienced in multiple technical and engineering-related works.
+He has practical field experience including data collection for the Addis Ababa Transport Bureau and WFTR projects. He is IT certified and experienced in multiple technical roles.
 
 His leadership and multidisciplinary skills drive the vision of Sadan Infrastructure PLC.`,
     },
@@ -69,7 +69,7 @@ His leadership and multidisciplinary skills drive the vision of Sadan Infrastruc
 
 He has over 8 years of experience in structural design, analysis, and construction supervision. He has contributed to residential, commercial, and infrastructure projects.
 
-He specializes in reinforced concrete, steel structures, and foundation systems. He ensures structural safety, quality, and durability in all projects.`,
+He specializes in reinforced concrete, steel structures, and foundation systems.`,
     },
 
     {
@@ -101,9 +101,9 @@ He specializes in reinforced concrete, steel structures, and foundation systems.
 
         bio: `Engineer Guta Jiregna is a Co-Founder and Architectural Engineer at Sadan Infrastructure PLC.
 
-He has over 7 years of experience in architectural design, planning, and coordination. He focuses on creating modern, functional, and sustainable building designs.
+He has over 7 years of experience in architectural design and planning. He focuses on creating modern and functional building designs.
 
-He specializes in architectural visualization, interior coordination, and construction documentation.`,
+He specializes in architectural visualization and construction documentation.`,
     },
 
     {
@@ -135,14 +135,14 @@ He specializes in architectural visualization, interior coordination, and constr
 
         bio: `Girma Haile is a Project Manager at Sadan Infrastructure PLC with over 6 years of experience.
 
-He manages construction projects from planning to completion, ensuring quality, time efficiency, and cost control.
+He manages construction projects from planning to completion, ensuring quality and efficiency.
 
-He plays a key role in coordination between engineers, workers, and management teams.`,
+He coordinates engineers, workers, and management teams for smooth project execution.`,
     },
 
     {
-        id: "Unknown",
-        name: "unknown",
+        id: "finance-officer",
+        name: "Unknown",
         role: "Finance Officer / Cashier",
         phone: "0923674790",
         education: "BSc in Management – Jimma University",
@@ -167,8 +167,8 @@ He plays a key role in coordination between engineers, workers, and management t
 
         image: "/images/casher.jpg",
 
-        bio: `Unknown is the Finance Officer of Sadan Infrastructure PLC with over 5 years of experience.
+        bio: `The Finance Officer of Sadan Infrastructure PLC has over 5 years of experience in financial administration.
 
-She manages daily financial operations, records, and reporting. She ensures accuracy, transparency, and accountability in financial activities.`,
+Responsible for daily financial operations, record keeping, and reporting, ensuring accuracy and transparency in all financial activities.`,
     },
 ];

@@ -27,13 +27,17 @@ const TeamCard = ({ member, index, onClick }: Props) => {
         >
 
             {/* IMAGE WRAPPER */}
-            <div className="h-60 sm:h-64 md:h-72 lg:h-80 w-full bg-gray-100 flex items-center justify-center overflow-hidden">
+            <div className="h-64 sm:h-72 md:h-80 w-full bg-gray-100 overflow-hidden">
 
                 <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-contain sm:object-contain md:object-contain
-                    transition duration-300 hover:scale-105"
+                    className="
+                        w-full h-full
+                        object-cover sm:object-cover md:object-cover
+                        object-center
+                        transition duration-300 hover:scale-105
+                    "
                 />
 
             </div>

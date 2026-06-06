@@ -20,7 +20,7 @@ const Navbar = () => {
             <header className="fixed top-0 left-0 w-full z-[1000] bg-[#002B5B]/95 backdrop-blur-md shadow-lg border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-5 md:px-6 py-3 flex items-center justify-between">
 
-                    {/* LEFT SIDE: HAMBURGER */}
+                    {/* LEFT: HAMBURGER */}
                     <button
                         onClick={() => setOpen(!open)}
                         className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
@@ -39,7 +39,7 @@ const Navbar = () => {
                         />
                     </button>
 
-                    {/* LOGO (CENTERED & MORE CLEAR) */}
+                    {/* LOGO */}
                     <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
                         <div className="bg-white rounded-md p-2 shadow-lg">
                             <img
@@ -81,11 +81,12 @@ const Navbar = () => {
                 />
             )}
 
-            {/* MOBILE MENU */}
+            {/* MOBILE MENU (LEFT SIDE SLIDE) */}
             <div
-                className={`fixed top-0 right-0 h-full w-72 bg-[#001F3F] z-[1002] transform transition-transform duration-300
-                ${open ? "translate-x-0" : "translate-x-full"}`}
+                className={`fixed top-0 left-0 h-full w-72 bg-[#001F3F] z-[1002] transform transition-transform duration-300
+                ${open ? "translate-x-0" : "-translate-x-full"}`}
             >
+                {/* HEADER */}
                 <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
                     <h2 className="text-white font-bold">Menu</h2>
 
@@ -97,6 +98,7 @@ const Navbar = () => {
                     </button>
                 </div>
 
+                {/* LINKS */}
                 <div className="flex flex-col gap-6 px-6 py-6">
                     {links.map((l) => (
                         <NavLink

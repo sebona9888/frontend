@@ -17,7 +17,7 @@ const Navbar = () => {
     return (
         <>
             {/* NAVBAR */}
-            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#002B5B]/95 backdrop-blur-md shadow-lg border-b border-white/10">
+            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#0B0F14]/95 backdrop-blur-md shadow-lg border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-5 md:px-6 py-3 flex items-center justify-between">
 
                     {/* LEFT: HAMBURGER */}
@@ -49,7 +49,7 @@ const Navbar = () => {
                             />
                         </div>
 
-                        <h1 className="text-white font-bold text-base md:text-lg tracking-wide drop-shadow-sm">
+                        <h1 className="text-white font-bold text-base md:text-lg tracking-wide">
                             GGS <span className="text-[#D28E28]">INFRASTRUCTURE</span>
                         </h1>
                     </div>
@@ -81,9 +81,9 @@ const Navbar = () => {
                 />
             )}
 
-            {/* MOBILE MENU (LEFT SIDE SLIDE) */}
+            {/* MOBILE MENU (LEFT SLIDE) */}
             <div
-                className={`fixed top-0 left-0 h-full w-72 bg-[#001F3F] z-[1002] transform transition-transform duration-300
+                className={`fixed top-0 left-0 h-full w-72 bg-[#111827] z-[1002] transform transition-transform duration-300
                 ${open ? "translate-x-0" : "-translate-x-full"}`}
             >
                 {/* HEADER */}

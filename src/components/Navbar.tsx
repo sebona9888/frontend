@@ -20,17 +20,36 @@ const Navbar = () => {
             <header className="fixed top-0 left-0 w-full z-[1000] bg-[#002B5B]/95 backdrop-blur-md shadow-lg border-b border-white/10">
                 <div className="max-w-7xl mx-auto px-5 md:px-6 py-3 flex items-center justify-between">
 
-                    {/* LOGO */}
-                    <div className="flex items-center gap-3 z-[1100]">
-                        <div className="bg-white rounded-md p-1 shadow-md">
+                    {/* LEFT SIDE: HAMBURGER */}
+                    <button
+                        onClick={() => setOpen(!open)}
+                        className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
+                    >
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300
+                            ${open ? "rotate-45 translate-y-1.5" : ""}`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300
+                            ${open ? "opacity-0" : ""}`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300
+                            ${open ? "-rotate-45 -translate-y-1.5" : ""}`}
+                        />
+                    </button>
+
+                    {/* LOGO (CENTERED & MORE CLEAR) */}
+                    <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
+                        <div className="bg-white rounded-md p-2 shadow-lg">
                             <img
                                 src="/images/logo.jpg"
-                                className="h-10 w-auto object-contain"
+                                className="h-11 w-auto object-contain"
                                 alt="GGS Logo"
                             />
                         </div>
 
-                        <h1 className="text-white font-bold text-base md:text-lg tracking-wide">
+                        <h1 className="text-white font-bold text-base md:text-lg tracking-wide drop-shadow-sm">
                             GGS <span className="text-[#D28E28]">INFRASTRUCTURE</span>
                         </h1>
                     </div>
@@ -51,25 +70,6 @@ const Navbar = () => {
                             </NavLink>
                         ))}
                     </nav>
-
-                    {/* HAMBURGER (ANIMATED) */}
-                    <button
-                        onClick={() => setOpen(!open)}
-                        className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
-                    >
-                        <span
-                            className={`block h-0.5 w-6 bg-white transition-all duration-300
-                            ${open ? "rotate-45 translate-y-1.5" : ""}`}
-                        />
-                        <span
-                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300
-                            ${open ? "opacity-0" : ""}`}
-                        />
-                        <span
-                            className={`block h-0.5 w-6 bg-white transition-all duration-300
-                            ${open ? "-rotate-45 -translate-y-1.5" : ""}`}
-                        />
-                    </button>
                 </div>
             </header>
 
@@ -86,7 +86,6 @@ const Navbar = () => {
                 className={`fixed top-0 right-0 h-full w-72 bg-[#001F3F] z-[1002] transform transition-transform duration-300
                 ${open ? "translate-x-0" : "translate-x-full"}`}
             >
-                {/* HEADER */}
                 <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
                     <h2 className="text-white font-bold">Menu</h2>
 
@@ -98,7 +97,6 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* LINKS */}
                 <div className="flex flex-col gap-6 px-6 py-6">
                     {links.map((l) => (
                         <NavLink

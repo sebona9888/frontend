@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const location = useLocation();
 
     const links = [
         { name: "Home", path: "/" },
@@ -11,103 +10,96 @@ const Navbar = () => {
         { name: "Services", path: "/services" },
         { name: "Projects", path: "/projects" },
         { name: "Careers", path: "/careers" },
-        { name: "Contact", path: "/contact" },
-        { name: "Team", path: "/team" }
+        { name: "Team", path: "/team" },
+        { name: "Contact", path: "/contact" }
     ];
 
-    // Auto close menu on route change
-    useEffect(() => {
-        if (!open) return;
-
-        const frame = window.requestAnimationFrame(() => {
-            setOpen(false);
-        });
-
-        return () => window.cancelAnimationFrame(frame);
-    }, [location, open]);
-
     return (
-        <nav className="sticky top-0 z-50 bg-[#002B5B]/95 backdrop-blur-md border-b border-white/10 shadow-lg">
+        <>
+            {/* NAVBAR */}
+            <header className="fixed top-0 left-0 w-full z-[999] bg-[#002B5B] shadow-lg">
+                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-            {/* MAIN CONTAINER */}
-            <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
-
-                {/* LEFT: HAMBURGER (MOBILE) */}
-                <button
-                    onClick={() => setOpen(!open)}
-                    className="md:hidden text-3xl text-white"
-                >
-                    <span className="leading-none">
-                        {open ? "✕" : "☰"}
-                    </span>
-                </button>
-
-                {/* LOGO */}
-                <div className="flex items-center gap-3">
-                    <div className="bg-white px-2 py-1 rounded-lg shadow-md">
+                    {/* LOGO */}
+                    <div className="flex items-center gap-3">
                         <img
                             src="/images/logo.jpg"
-                            alt="GGS Logo"
-                            className="h-10 w-auto transition hover:scale-105 duration-300"
+                            className="h-10 bg-white p-1 rounded"
+                            alt="logo"
                         />
+                        <h1 className="text-white font-bold text-lg">
+                            GGS <span className="text-[#D28E28]">INFRA</span>
+                        </h1>
                     </div>
 
-                    <h1 className="text-lg md:text-2xl font-extrabold tracking-wide text-white leading-tight">
-                        GGS{" "}
-                        <span className="text-[#D28E28]">
-                            INFRASTRUCTURE
-                        </span>
-                    </h1>
-                </div>
-
-                {/* DESKTOP MENU */}
-                <ul className="hidden md:flex items-center gap-10 font-medium">
-                    {links.map((link) => (
-                        <li key={link.path}>
+                    {/* DESKTOP */}
+                    <nav className="hidden md:flex gap-8 text-white font-medium">
+                        {links.map((l) => (
                             <NavLink
-                                to={link.path}
+                                key={l.path}
+                                to={l.path}
                                 className={({ isActive }) =>
-                                    `relative text-sm tracking-wide transition duration-300
-                                    after:content-[''] after:absolute after:left-0 after:-bottom-1
-                                    after:w-0 after:h-[2px] after:bg-[#D28E28]
-                                    hover:after:w-full after:transition-all
-                                    ${isActive
+                                    isActive
                                         ? "text-[#D28E28]"
-                                        : "text-white hover:text-[#D28E28]"
-                                    }`
+                                        : "hover:text-[#D28E28]"
                                 }
                             >
-                                {link.name}
+                                {l.name}
                             </NavLink>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+                        ))}
+                    </nav>
+
+                    {/* HAMBURGER */}
+                    <button
+                        onClick={() => setOpen(true)}
+                        className="md:hidden text-white text-3xl"
+                    >
+                        ☰
+                    </button>
+                </div>
+            </header>
+
+            {/* OVERLAY */}
+            {open && (
+                <div
+                    onClick={() => setOpen(false)}
+                    className="fixed inset-0 bg-black/60 z-[998]"
+                />
+            )}
 
             {/* MOBILE MENU */}
             <div
-                className={`md:hidden bg-[#002B5B] border-t border-white/10 px-6 space-y-4 overflow-hidden transition-all duration-300 ${open
-                        ? "max-h-screen py-5 opacity-100"
-                        : "max-h-0 py-0 opacity-0"
-                    }`}
+                className={`fixed top-0 right-0 h-full w-72 bg-[#001F3F] z-[999] transition-transform duration-300
+                ${open ? "translate-x-0" : "translate-x-full"}`}
             >
-                {links.map((link) => (
-                    <NavLink
-                        key={link.path}
-                        to={link.path}
+                <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
+                    <h2 className="text-white font-bold">Menu</h2>
+                    <button
                         onClick={() => setOpen(false)}
-                        className={({ isActive }) =>
-                            `block py-2 text-lg transition ${isActive
-                                ? "text-[#D28E28]"
-                                : "text-white hover:text-[#D28E28]"
-                            }`
-                        }
+                        className="text-white text-2xl"
                     >
-                        {link.name}
-                    </NavLink>
-                ))}
+                        ✕
+                    </button>
+                </div>
+
+                <div className="flex flex-col gap-6 px-6 py-6">
+                    {links.map((l) => (
+                        <NavLink
+                            key={l.path}
+                            to={l.path}
+                            onClick={() => setOpen(false)}
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "text-[#D28E28]"
+                                    : "text-white"
+                            }
+                        >
+                            {l.name}
+                        </NavLink>
+                    ))}
+                </div>
             </div>
-        </nav>
+        </>
     );
 };
 

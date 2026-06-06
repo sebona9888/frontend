@@ -21,7 +21,7 @@ const Navbar = () => {
                 <div className="max-w-7xl mx-auto px-5 md:px-6 py-3 flex items-center justify-between">
 
                     {/* LOGO */}
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3 z-[1100]">
                         <div className="bg-white rounded-md p-1 shadow-md">
                             <img
                                 src="/images/logo.jpg"
@@ -52,17 +52,28 @@ const Navbar = () => {
                         ))}
                     </nav>
 
-                    {/* HAMBURGER */}
+                    {/* HAMBURGER (ANIMATED) */}
                     <button
-                        onClick={() => setOpen(true)}
-                        className="md:hidden text-white text-3xl p-2 z-[1001]"
+                        onClick={() => setOpen(!open)}
+                        className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
                     >
-                        ☰
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300
+                            ${open ? "rotate-45 translate-y-1.5" : ""}`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300
+                            ${open ? "opacity-0" : ""}`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300
+                            ${open ? "-rotate-45 -translate-y-1.5" : ""}`}
+                        />
                     </button>
                 </div>
             </header>
 
-            {/* OVERLAY (SAFE FIX) */}
+            {/* OVERLAY */}
             {open && (
                 <div
                     onClick={() => setOpen(false)}

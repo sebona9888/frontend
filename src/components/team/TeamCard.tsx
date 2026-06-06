@@ -22,26 +22,29 @@ const TeamCard = ({ member, index, onClick }: Props) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-2xl transition"
+            className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer
+            hover:shadow-xl transition active:scale-[0.98]"
         >
             {/* IMAGE */}
-            <div className="h-80 w-full overflow-hidden bg-gray-100">
+            <div className="h-56 sm:h-64 md:h-72 lg:h-80 w-full overflow-hidden bg-gray-100">
                 <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover object-[center_20%] hover:scale-105 transition"
+                    className="w-full h-full object-cover object-center sm:object-[center_20%] hover:scale-105 transition duration-300"
                 />
             </div>
 
             {/* INFO */}
-            <div className="p-6 text-center">
-                <h2 className="text-xl font-bold text-gray-900">
+            <div className="p-4 sm:p-5 md:p-6 text-center">
+
+                <h2 className="text-lg sm:text-xl font-bold text-gray-900">
                     {member.name}
                 </h2>
 
-                <p className="text-gray-600 mt-1">
+                <p className="text-sm sm:text-base text-gray-600 mt-1">
                     {member.role}
                 </p>
+
             </div>
         </motion.div>
     );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaClock } from "react-icons/fa";
 
@@ -40,23 +40,37 @@ const jobsData: Job[] = [
 const CareersList = () => {
     const [selectedJob, setSelectedJob] = useState<Job | null>(null);
 
-    return (
-        <section className="w-full bg-white text-gray-900 py-16 px-6">
+    // lock scroll when modal open
+    useEffect(() => {
+        if (selectedJob) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [selectedJob]);
 
-            {/* JOBS */}
-            <div className="max-w-5xl mx-auto grid gap-6">
+    return (
+        <section className="w-full bg-white text-gray-900 py-12 sm:py-16 px-4 sm:px-6">
+
+            {/* JOB LIST */}
+            <div className="max-w-5xl mx-auto grid gap-5 sm:gap-6">
 
                 {jobsData.map((job) => (
                     <motion.div
                         key={job.id}
-                        whileHover={{ scale: 1.02 }}
-                        className="border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.01 }}
+                        className="border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition bg-white"
                     >
-                        <h2 className="text-xl font-bold text-gray-900">
+                        {/* TITLE */}
+                        <h2 className="text-lg sm:text-xl font-bold text-gray-900">
                             {job.title}
                         </h2>
 
-                        <div className="flex gap-4 mt-2 text-gray-500 text-sm">
+                        {/* META */}
+                        <div className="flex flex-wrap gap-3 sm:gap-4 mt-2 text-gray-500 text-xs sm:text-sm">
                             <span className="flex items-center gap-2">
                                 <FaMapMarkerAlt />
                                 {job.location}
@@ -66,15 +80,28 @@ const CareersList = () => {
                                 <FaClock />
                                 {job.type}
                             </span>
+
+                            {/* JOB TYPE BADGE */}
+                            <span className={`px-2 py-1 rounded-full text-xs font-medium
+                                ${job.type === "Full-time"
+                                    ? "bg-green-100 text-green-700"
+                                    : "bg-yellow-100 text-yellow-700"
+                                }`}
+                            >
+                                {job.type}
+                            </span>
                         </div>
 
-                        <p className="mt-3 text-gray-600">
+                        {/* DESCRIPTION */}
+                        <p className="mt-3 text-sm sm:text-base text-gray-600 leading-relaxed">
                             {job.description}
                         </p>
 
+                        {/* BUTTON */}
                         <button
                             onClick={() => setSelectedJob(job)}
-                            className="mt-4 bg-black text-white px-5 py-2 rounded-lg"
+                            className="mt-4 bg-black text-white px-4 sm:px-5 py-2 rounded-lg
+                            hover:bg-gray-800 active:scale-95 transition text-sm sm:text-base"
                         >
                             Apply
                         </button>
@@ -83,40 +110,49 @@ const CareersList = () => {
 
             </div>
 
-            {/* SIMPLE MODAL */}
+            {/* MODAL */}
             {selectedJob && (
                 <div
-                    className="fixed inset-0 bg-black/50 flex items-center justify-center px-4"
+                    className="fixed inset-0 bg-black/60 flex items-center justify-center px-4 z-50"
                     onClick={() => setSelectedJob(null)}
                 >
-                    <div
-                        className="bg-white w-full max-w-md rounded-xl p-6"
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.2 }}
+                        className="bg-white w-full max-w-md rounded-2xl p-5 sm:p-6 shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <h2 className="text-xl font-bold">
+                        {/* TITLE */}
+                        <h2 className="text-lg sm:text-xl font-bold">
                             Apply for {selectedJob.title}
                         </h2>
 
-                        <p className="mt-3 text-gray-600">
+                        <p className="mt-3 text-sm sm:text-base text-gray-600">
                             Send your CV to our HR team.
                         </p>
 
+                        {/* INPUT */}
                         <input
-                            className="w-full border p-3 rounded-lg mt-4"
+                            className="w-full border p-3 rounded-lg mt-4 text-sm sm:text-base
+                            focus:ring-2 focus:ring-black outline-none"
                             placeholder="Your Email"
                         />
 
-                        <button className="mt-4 w-full bg-black text-white py-3 rounded-lg">
+                        {/* BUTTON */}
+                        <button className="mt-4 w-full bg-black text-white py-3 rounded-lg
+                        hover:bg-gray-800 active:scale-95 transition">
                             Send Application
                         </button>
 
+                        {/* CLOSE */}
                         <button
                             onClick={() => setSelectedJob(null)}
-                            className="mt-3 w-full text-gray-500"
+                            className="mt-3 w-full text-gray-500 hover:text-black transition text-sm"
                         >
                             Close
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
             )}
 

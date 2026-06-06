@@ -1,17 +1,23 @@
 const ContactMap = () => {
     return (
-        <section className="px-6 pb-16">
+        <section className="px-4 sm:px-6 pb-12 sm:pb-16">
 
-            <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-lg">
+            <div className="max-w-7xl mx-auto rounded-xl sm:rounded-2xl overflow-hidden shadow-md sm:shadow-lg border border-gray-100">
 
-                <iframe
-                    src="https://www.google.com/maps?q=Addis%20Ababa,%20Ethiopia&output=embed"
-                    width="100%"
-                    height="400"
-                    loading="lazy"
-                    className="border-0"
-                    allowFullScreen
-                ></iframe>
+                {/* MAP CONTAINER */}
+                <div className="relative w-full h-[250px] sm:h-[320px] md:h-[400px] lg:h-[450px]">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Addis%20Ababa,%20Ethiopia&output=embed"
+                        className="absolute inset-0 w-full h-full border-0"
+                        loading="lazy"
+                        allowFullScreen
+                    ></iframe>
+
+                    {/* OPTIONAL OVERLAY (LIGHT BRAND TOUCH) */}
+                    <div className="absolute inset-0 pointer-events-none bg-black/5"></div>
+
+                </div>
 
             </div>
 

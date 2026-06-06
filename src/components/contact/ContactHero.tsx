@@ -2,44 +2,46 @@ import { motion } from "framer-motion";
 
 const ContactHero = () => {
     return (
-        <section className="relative h-[60vh] overflow-hidden flex items-center justify-center">
+        <section className="relative min-h-[55vh] md:h-[60vh] overflow-hidden flex items-center justify-center pt-20">
 
-            {/* Background Image */}
+            {/* BACKGROUND IMAGE */}
             <img
                 src="/images/contact.jpg"
                 alt="Contact"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover object-center"
             />
 
-            {/* Balanced Overlay (FIXED) */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/40"></div>
+            {/* CLEAN OVERLAY SYSTEM */}
+            <div className="absolute inset-0 bg-black/50 md:bg-black/40"></div>
 
-            {/* Soft light boost (improves dark images) */}
+            {/* LIGHT BOOST (subtle) */}
             <div className="absolute inset-0 bg-white/5"></div>
 
-            {/* Content */}
-            <div className="relative z-10 text-center px-6 max-w-3xl">
+            {/* OPTIONAL GLOW (responsive) */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[250px] sm:w-[350px] md:w-[450px] h-[250px] sm:h-[350px] md:h-[450px] bg-[#C8851F]/10 blur-3xl rounded-full"></div>
+
+            {/* CONTENT */}
+            <div className="relative z-10 text-center px-4 sm:px-6 max-w-3xl">
 
                 <motion.h1
-                    initial={{ opacity: 0, y: -40 }}
+                    initial={{ opacity: 0, y: -25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-5xl md:text-7xl font-bold text-white drop-shadow-2xl"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-xl"
                 >
                     Contact Us
                 </motion.h1>
 
                 <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-4 text-lg md:text-xl text-white/90 font-medium drop-shadow-lg"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.7 }}
+                    className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl text-white/90 font-medium leading-relaxed px-2 sm:px-0"
                 >
                     We are ready to help you with your infrastructure and construction projects.
                 </motion.p>
 
             </div>
-
         </section>
     );
 };

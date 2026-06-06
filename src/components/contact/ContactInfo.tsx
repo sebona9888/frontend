@@ -8,54 +8,65 @@ import { motion } from "framer-motion";
 const ContactInfo = () => {
     return (
         <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="w-full"
         >
-            <h2 className="text-3xl font-bold text-gray-800">
+            {/* TITLE */}
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
                 Get In Touch
             </h2>
 
-            <p className="mt-4 text-gray-600 leading-relaxed">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
                 Contact Sadan Infrastructure PLC for inquiries,
                 partnerships, project discussions, or career opportunities.
             </p>
 
-            <div className="mt-10 space-y-6">
+            {/* CONTACT ITEMS */}
+            <div className="mt-8 sm:mt-10 space-y-5 sm:space-y-6">
 
-                <div className="flex items-center gap-4">
-                    <div className="bg-secondary text-black p-4 rounded-full">
+                {/* PHONE */}
+                <div className="flex items-start gap-4 group">
+                    <div className="bg-[#C8851F]/10 text-[#C8851F] p-3 sm:p-4 rounded-full
+                        group-hover:bg-[#C8851F] group-hover:text-white transition">
                         <FaPhoneAlt />
                     </div>
 
                     <div>
-                        <h3 className="font-bold">Phone</h3>
-                        <p className="text-gray-600">+251 902989488</p>
+                        <h3 className="font-semibold text-gray-800">Phone</h3>
+                        <p className="text-gray-600 text-sm sm:text-base">
+                            +251 902 989 488
+                        </p>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    <div className="bg-secondary text-black p-4 rounded-full">
+                {/* EMAIL */}
+                <div className="flex items-start gap-4 group">
+                    <div className="bg-[#C8851F]/10 text-[#C8851F] p-3 sm:p-4 rounded-full
+                        group-hover:bg-[#C8851F] group-hover:text-white transition">
                         <FaEnvelope />
                     </div>
 
-                    <div>
-                        <h3 className="font-bold">Email</h3>
-                        <p className="text-gray-600">
+                    <div className="min-w-0">
+                        <h3 className="font-semibold text-gray-800">Email</h3>
+                        <p className="text-gray-600 text-sm sm:text-base break-all">
                             info@sadaninfrastructure.com
                         </p>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-4">
-                    <div className="bg-secondary text-black p-4 rounded-full">
+                {/* LOCATION */}
+                <div className="flex items-start gap-4 group">
+                    <div className="bg-[#C8851F]/10 text-[#C8851F] p-3 sm:p-4 rounded-full
+                        group-hover:bg-[#C8851F] group-hover:text-white transition">
                         <FaMapMarkerAlt />
                     </div>
 
                     <div>
-                        <h3 className="font-bold">Location</h3>
-                        <p className="text-gray-600">
+                        <h3 className="font-semibold text-gray-800">Location</h3>
+                        <p className="text-gray-600 text-sm sm:text-base">
                             Addis Ababa, Ethiopia
                         </p>
                     </div>

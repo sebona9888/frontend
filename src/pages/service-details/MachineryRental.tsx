@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MachineCard from "../../components/machinery/MachineCard";
 import MachineModal from "../../components/machinery/MachineModal";
 import RentalForm from "../../components/machinery/RentalForm";
@@ -53,52 +53,80 @@ const MachineryRental = () => {
         }
     ];
 
+    // 🔒 lock scroll when modal/form is open
+    useEffect(() => {
+        if (selectedMachine || openForm) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [selectedMachine, openForm]);
+
     return (
         <div className="min-h-screen bg-gray-50">
-            {/* Hero Section */}
-            <section className="py-16 text-center">
-                <h1 className="text-5xl font-bold text-[#002B5B]">
-                    Machinery Rental
-                </h1>
-                <p className="text-gray-600 mt-4">
-                    Reliable construction equipment rental services.
-                </p>
-            </section>
 
-            {/* Catalog Grid */}
-            <section className="max-w-7xl mx-auto px-6 pb-20">
-                <div className="grid md:grid-cols-3 gap-8">
-                    {machines.map((machine, i) => (
-                        <MachineCard
-                            key={i}
-                            machine={machine}
-                            onSelect={() => setSelectedMachine(machine)}
-                        />
-                    ))}
+            {/* HERO */}
+            <section className="relative py-14 sm:py-16 md:py-20 text-center bg-white">
+
+                <div className="max-w-3xl mx-auto px-4">
+
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#002B5B]">
+                        Machinery Rental
+                    </h1>
+
+                    <p className="text-gray-600 mt-3 text-sm sm:text-base md:text-lg">
+                        Reliable construction equipment rental services for all project sizes.
+                    </p>
+
+                    {/* CTA hint */}
+                    <div className="mt-5 text-xs sm:text-sm text-gray-500">
+                        Select a machine below to view details and request rental
+                    </div>
+
                 </div>
+
             </section>
 
-            {/* Product Detail Modal */}
+            {/* GRID */}
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20">
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+                    {machines.map((machine, i) => (
+                        <div
+                            key={i}
+                            className="transition-transform hover:-translate-y-1"
+                        >
+                            <MachineCard
+                                machine={machine}
+                                onSelect={() => setSelectedMachine(machine)}
+                            />
+                        </div>
+                    ))}
+
+                </div>
+
+            </section>
+
+            {/* MODAL */}
             {selectedMachine && !openForm && (
                 <MachineModal
                     machine={selectedMachine}
                     onClose={() => setSelectedMachine(null)}
-                    onRent={() => {
-                      
-                        setOpenForm(true);
-                    }}
+                    onRent={() => setOpenForm(true)}
                 />
             )}
 
-            {}
+            {/* FORM */}
             <RentalForm
                 open={openForm}
                 onClose={() => {
                     setOpenForm(false);
-                    setSelectedMachine(null); 
+                    setSelectedMachine(null);
                 }}
                 machines={machines}
             />
+
         </div>
     );
 };

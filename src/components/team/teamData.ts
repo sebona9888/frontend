@@ -6,8 +6,36 @@ export const team = [
         phone: "0902989488",
         education: "BSc in Civil Engineering – Addis Ababa University",
         experience: "10+ Years",
+
+        skills: [
+            "Full Stack Development",
+            "Graphic Design",
+            "Civil Engineering",
+            "Project Management",
+            "Data Collection & Analysis",
+            "IT Systems & Documentation"
+        ],
+
+        highlights: [
+            "Top scorer with 4.0 GPA in matric examination",
+            "Recognized at West Shoa Education Office for academic excellence",
+            "Data collection for Addis Ababa Transport Bureau",
+            "WFTR field research & reporting experience",
+            "Certified in Information Technology (IT)",
+            "Worked from high school to university in technical roles"
+        ],
+
         image: "/images/sebona.jpg",
-        bio: `Engineer Sebona Haile is the Founder and General Manager of Sadan Infrastructure PLC. He has more than 10 years of experience in civil engineering, infrastructure development, project management, and construction supervision. Throughout his professional career, he has successfully managed building construction, road construction, and infrastructure projects. His strong leadership, technical expertise, and commitment to quality have contributed significantly to the growth and success of the company. He is dedicated to delivering innovative, sustainable, and cost-effective engineering solutions while maintaining the highest standards of safety and professionalism.`,
+
+        bio: `Engineer Sebona Haile is the Founder and General Manager of Sadan Infrastructure PLC.
+
+He has over 10 years of experience in civil engineering, project management, infrastructure development, and technical systems. He is also skilled in full stack development and graphic design, combining engineering and digital expertise.
+
+He has demonstrated academic excellence from an early stage, achieving a 4.0 GPA in matric and receiving recognition from the West Shoa Education Office.
+
+He has practical field experience including data collection for the Addis Ababa Transport Bureau and WFTR projects. He is also IT certified and experienced in multiple technical and engineering-related works.
+
+His leadership and multidisciplinary skills drive the vision of Sadan Infrastructure PLC.`,
     },
 
     {
@@ -17,8 +45,31 @@ export const team = [
         phone: "0912345678",
         education: "BSc in Civil Engineering – Addis Ababa University",
         experience: "8+ Years",
+
+        skills: [
+            "Structural Design & Analysis",
+            "Reinforced Concrete Design",
+            "Steel Structures",
+            "Foundation Engineering",
+            "Construction Supervision",
+            "Site Safety Management"
+        ],
+
+        highlights: [
+            "Co-founder of Sadan Infrastructure PLC",
+            "Structural design specialist",
+            "Experienced in building supervision",
+            "Ensures safety and durability of structures",
+            "Worked on residential and commercial projects"
+        ],
+
         image: "/images/ayansa.jpg",
-        bio: `Engineer Ayanasa Abdisa is a Co-Founder of Sadan Infrastructure PLC and an accomplished Structural Engineer. With over 8 years of experience in structural design, analysis, and construction supervision, he has contributed to the successful completion of numerous residential, commercial, and infrastructure projects. His expertise includes reinforced concrete design, steel structures, foundation systems, and quality assurance. He is committed to ensuring structural safety, durability, and efficiency in every project undertaken by the company.`,
+
+        bio: `Engineer Ayanasa Abdisa is a Co-Founder of Sadan Infrastructure PLC and an experienced Structural Engineer.
+
+He has over 8 years of experience in structural design, analysis, and construction supervision. He has contributed to residential, commercial, and infrastructure projects.
+
+He specializes in reinforced concrete, steel structures, and foundation systems. He ensures structural safety, quality, and durability in all projects.`,
     },
 
     {
@@ -28,8 +79,31 @@ export const team = [
         phone: "0912345680",
         education: "BSc in Architecture – Addis Ababa University",
         experience: "7+ Years",
+
+        skills: [
+            "Architectural Design",
+            "3D Visualization",
+            "Building Planning",
+            "Interior Design",
+            "Construction Documentation",
+            "Sustainable Design"
+        ],
+
+        highlights: [
+            "Co-founder of Sadan Infrastructure PLC",
+            "Modern architectural design expert",
+            "Experienced in building visualization",
+            "Strong design and planning skills",
+            "Delivered multiple building projects"
+        ],
+
         image: "/images/guta.jpg",
-        bio: `Engineer Guta Jiregna is a Co-Founder and Architectural Engineer with extensive experience in architectural design, planning, and project coordination. For more than 7 years, he has been involved in designing modern, functional, and sustainable buildings that meet both aesthetic and practical requirements. His expertise includes architectural visualization, project planning, interior design coordination, and construction documentation. He is passionate about creating innovative spaces that improve communities and enhance the built environment.`,
+
+        bio: `Engineer Guta Jiregna is a Co-Founder and Architectural Engineer at Sadan Infrastructure PLC.
+
+He has over 7 years of experience in architectural design, planning, and coordination. He focuses on creating modern, functional, and sustainable building designs.
+
+He specializes in architectural visualization, interior coordination, and construction documentation.`,
     },
 
     {
@@ -39,18 +113,62 @@ export const team = [
         phone: "0920345682",
         education: "BSc in Management – Addis Ababa University",
         experience: "6+ Years",
+
+        skills: [
+            "Project Planning",
+            "Budget Management",
+            "Team Leadership",
+            "Site Coordination",
+            "Risk Management",
+            "Construction Supervision"
+        ],
+
+        highlights: [
+            "Project Manager at Sadan Infrastructure PLC",
+            "Manages multiple construction projects",
+            "Strong leadership in site operations",
+            "Ensures timely project delivery",
+            "Controls budget and resources"
+        ],
+
         image: "/images/girma.jpg",
-        bio: `Girma Haile serves as Project Manager at Sadan Infrastructure PLC and brings more than 6 years of experience in project planning, scheduling, budgeting, and team leadership. He plays a critical role in coordinating project activities, managing resources, and ensuring successful project delivery. His ability to maintain project timelines, control costs, and communicate effectively with stakeholders has made him a valuable member of the organization. He is dedicated to delivering projects on time while maintaining quality and safety standards.`,
+
+        bio: `Girma Haile is a Project Manager at Sadan Infrastructure PLC with over 6 years of experience.
+
+He manages construction projects from planning to completion, ensuring quality, time efficiency, and cost control.
+
+He plays a key role in coordination between engineers, workers, and management teams.`,
     },
 
     {
-        id: "finance-cashier",
-        name: "Finance Officer",
-        role: "Finance Cashier",
+        id: "hana-gebre",
+        name: "Hana Gebre",
+        role: "Finance Officer / Cashier",
         phone: "0923674790",
         education: "BSc in Management – Jimma University",
         experience: "5+ Years",
+
+        skills: [
+            "Financial Management",
+            "Cash Handling",
+            "Accounting Support",
+            "Budget Tracking",
+            "Reporting",
+            "Data Accuracy"
+        ],
+
+        highlights: [
+            "Finance Officer at Sadan Infrastructure PLC",
+            "Manages daily financial records",
+            "Ensures transparency and accuracy",
+            "Supports budgeting and reporting",
+            "Strong attention to detail"
+        ],
+
         image: "/images/casher.jpg",
-        bio: `As Finance Cashier, she is responsible for overseeing daily financial transactions, maintaining accurate financial records, and supporting the financial operations of Sadan Infrastructure PLC. With more than 5 years of experience in finance and administration, she ensures transparency, accountability, and efficiency in financial management. Her attention to detail and dedication to professional integrity help support the company's continued growth and operational excellence.`,
+
+        bio: `Hana Gebre is the Finance Officer of Sadan Infrastructure PLC with over 5 years of experience.
+
+She manages daily financial operations, records, and reporting. She ensures accuracy, transparency, and accountability in financial activities.`,
     },
 ];

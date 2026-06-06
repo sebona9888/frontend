@@ -45,40 +45,44 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <section className="bg-gradient-to-b from-white to-slate-100 py-24 px-6">
+        <section className="bg-gradient-to-b from-white to-slate-100 py-14 sm:py-20 md:py-24 px-4 sm:px-6">
+
             <div className="max-w-7xl mx-auto text-center">
 
-                {/* Title */}
-                <h2 className="text-4xl font-bold text-slate-800">
+                {/* TITLE */}
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-800">
                     Why Choose Us
                 </h2>
 
-                <p className="mt-4 text-slate-600 max-w-3xl mx-auto">
+                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-slate-600 max-w-2xl md:max-w-3xl mx-auto leading-relaxed">
                     We combine experience, innovation, and dedication to deliver
                     infrastructure solutions that exceed expectations.
                 </p>
 
-                {/* Stats Grid */}
-                <div className="grid md:grid-cols-4 gap-8 mt-14">
+                {/* GRID */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mt-10 md:mt-14">
 
                     {stats.map((item, index) => (
                         <motion.div
                             key={index}
-                            whileHover={{ y: -8, scale: 1.03 }}
+                            whileHover={{ y: -6, scale: 1.02 }}
                             transition={{ duration: 0.3 }}
-                            className="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl border-t-4 border-slate-200"
+                            className="bg-white p-6 sm:p-7 md:p-8 rounded-2xl shadow-md hover:shadow-xl border-t-4 border-slate-200 active:scale-95 transition"
                         >
-                            <div className="flex justify-center mb-4">
-                                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-100">
+                            {/* ICON */}
+                            <div className="flex justify-center mb-3 sm:mb-4">
+                                <div className="w-10 sm:w-12 h-10 sm:h-12 flex items-center justify-center rounded-full bg-slate-100">
                                     {item.icon}
                                 </div>
                             </div>
 
-                            <h3 className="text-4xl font-bold text-orange-500">
+                            {/* VALUE */}
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500">
                                 {item.value}
                             </h3>
 
-                            <p className="mt-2 text-slate-600 font-medium">
+                            {/* LABEL */}
+                            <p className="mt-2 text-xs sm:text-sm md:text-base text-slate-600 font-medium">
                                 {item.label}
                             </p>
                         </motion.div>

@@ -54,52 +54,70 @@ const MachineDetails = () => {
     }
 
     return (
-        <div className="pt-24 md:pt-28 pb-14 bg-gray-50 min-h-screen">
+        <div className="min-h-screen bg-gray-50 pt-24 pb-16">
 
-            <div className="max-w-4xl mx-auto px-4">
+            {/* HERO */}
+            <div className="bg-white border-b">
+                <div className="max-w-6xl mx-auto px-6 py-10">
 
-                {/* IMAGE (SMALLER + CLEAN) */}
-                <div className="rounded-xl overflow-hidden shadow-md">
+                    <h1 className="text-3xl md:text-4xl font-bold text-[#002B5B] capitalize">
+                        {machine.name}
+                    </h1>
+
+                    <p className="text-gray-600 mt-2">
+                        Professional machinery rental service in Ethiopia
+                    </p>
+
+                </div>
+            </div>
+
+            {/* MAIN CONTENT */}
+            <div className="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-10">
+
+                {/* IMAGE */}
+                <div className="rounded-2xl overflow-hidden shadow-lg bg-white">
                     <img
                         src={machine.image}
                         alt={machine.name}
-                        className="w-full h-56 sm:h-72 md:h-80 object-cover"
+                        className="w-full h-[420px] object-cover"
                     />
                 </div>
 
-                {/* TITLE */}
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mt-5 text-[#002B5B]">
-                    {machine.name}
-                </h1>
+                {/* DETAILS */}
+                <div className="bg-white rounded-2xl shadow-lg p-6">
 
-                {/* DESCRIPTION */}
-                <p className="text-gray-600 mt-3 text-sm sm:text-base leading-relaxed">
-                    {machine.desc}
-                </p>
+                    <h2 className="text-2xl font-bold text-[#002B5B]">
+                        Machine Overview
+                    </h2>
 
-                {/* PRICE BOX */}
-                <div className="mt-5 bg-white p-4 rounded-lg shadow border-l-4 border-[#D28E28]">
-                    <p className="text-[#D28E28] font-bold text-base sm:text-lg">
-                        {machine.rate}
+                    <p className="text-gray-600 mt-4 leading-relaxed">
+                        {machine.desc}
                     </p>
-                    <p className="text-gray-500 text-sm">
-                        {machine.note}
-                    </p>
+
+                    {/* PRICE */}
+                    <div className="mt-6 bg-gray-50 p-4 rounded-lg border-l-4 border-[#D28E28]">
+                        <p className="text-[#D28E28] font-bold text-xl">
+                            {machine.rate}
+                        </p>
+                        <p className="text-gray-500 text-sm mt-1">
+                            {machine.note}
+                        </p>
+                    </div>
+
+                    {/* FEATURES */}
+                    <div className="mt-6 space-y-2 text-gray-600 text-sm">
+                        <p>✔ Available for short & long term rental</p>
+                        <p>✔ Operator available on request</p>
+                        <p>✔ Delivery to site available</p>
+                        <p>✔ 24/7 support for projects</p>
+                    </div>
+
+                    {/* BUTTON */}
+                    <button className="mt-8 w-full bg-[#002B5B] text-white py-3 rounded-lg hover:bg-[#001a3a] transition">
+                        Request This Machine
+                    </button>
+
                 </div>
-
-                {/* FEATURES */}
-                <div className="mt-6 text-gray-600 text-sm space-y-2">
-                    <p>✔ Available for short & long term rental</p>
-                    <p>✔ Operator available on request</p>
-                    <p>✔ Delivery to site available</p>
-                    <p>✔ 24/7 support for projects</p>
-                </div>
-
-                {/* BUTTON */}
-                <button className="mt-8 w-full sm:w-auto bg-[#002B5B] text-white px-6 py-3 rounded-lg hover:bg-[#001a3a] transition">
-                    Request This Machine
-                </button>
-
             </div>
         </div>
     );

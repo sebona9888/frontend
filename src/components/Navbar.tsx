@@ -43,7 +43,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
 
                         <img
-                            src="/images/logo.jpg"
+                            src="/images/logo.j"
                             alt="GGS Logo"
                             className="h-14 md:h-16 lg:h-20 w-auto object-contain"
                         />

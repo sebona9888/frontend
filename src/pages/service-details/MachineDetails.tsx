@@ -1,142 +1,96 @@
 import { useParams } from "react-router-dom";
 
-// same data
 const machines = [
     {
         name: "Hydraulic Excavator",
         image: "/images/machines/excavator.jpg",
-        desc: "Heavy-duty digging and earthmoving. Available with rock-breaker attachment.",
+        desc: "Heavy-duty digging and earthmoving machine.",
         rate: "8,000 ETB / Hour",
-        note: "Dry Rate • 8hr Min. Shift"
+        note: "Dry Rate • 8hr Min"
     },
     {
         name: "Crawler Bulldozer (CAT D8)",
         image: "/images/machines/bulldozer.jpg",
-        desc: "High-power land clearing, ripping, and grading for rough terrain.",
+        desc: "Land clearing and grading machine.",
         rate: "7,000 ETB / Hour",
-        note: "Dry Rate • 8hr Min. Shift"
+        note: "Dry Rate • 8hr Min"
     },
     {
         name: "Sino Dump Truck (20m³)",
         image: "/images/machines/dump-truck.jpg",
-        desc: "Bulk material transport and site clearing hauling.",
+        desc: "Material transport and hauling.",
         rate: "3,000 ETB / Hour",
-        note: "Fuel Included option available"
+        note: "Fuel option available"
     },
     {
         name: "Mobile Crane (25-Ton)",
         image: "/images/machines/crane.jpg",
-        desc: "Heavy structural lifting and high-altitude material handling.",
+        desc: "Heavy lifting operations.",
         rate: "10,000 ETB / Hour",
-        note: "Includes Certified Operator"
+        note: "Includes operator"
     },
     {
         name: "Concrete Mixer Truck",
         image: "/images/machines/concrete-mixer.jpg",
-        desc: "On-the-move concrete mixing and transit hauling.",
+        desc: "Concrete mixing and transport.",
         rate: "5,000 ETB / Hour",
-        note: "Per batch / hourly shift options"
+        note: "Per batch or hourly"
     }
 ];
 
 const MachineDetails = () => {
     const { name } = useParams();
 
-    const decodedName = decodeURIComponent(name || "");
-
     const machine = machines.find(
-        (m) => m.name === decodedName
+        (m) =>
+            m.name.toLowerCase().replace(/\s/g, "-") === name
     );
 
     if (!machine) {
         return (
-            <div className="pt-24 min-h-screen flex items-center justify-center">
-                <h1 className="text-2xl font-bold text-gray-700">
-                    Machine Not Found
-                </h1>
+            <div className="pt-32 text-center text-xl">
+                Machine Not Found
             </div>
         );
     }
 
-    const handleRequest = () => {
-        const phone = "251902989488";
-
-        const message = `
-Hello GGS Infrastructure,
-
-I want to rent:
-
-📌 Machine: ${machine.name}
-💰 Rate: ${machine.rate}
-📝 Description: ${machine.desc}
-        `;
-
-        window.open(
-            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
-            "_blank"
-        );
-    };
-
     return (
-        <div className="pt-24 min-h-screen bg-gray-50">
-
-            {/* IMAGE */}
-            <div className="max-w-6xl mx-auto px-4">
+        <div className="pt-28 pb-16 bg-gray-50 min-h-screen">
+            <div className="max-w-5xl mx-auto px-4">
 
                 <img
                     src={machine.image}
                     alt={machine.name}
-                    className="w-full h-[450px] object-cover rounded-2xl shadow-lg"
+                    className="w-full h-[400px] object-cover rounded-2xl"
                 />
 
-                {/* CONTENT */}
-                <div className="mt-8">
+                <h1 className="text-3xl md:text-4xl font-bold mt-6 text-[#002B5B]">
+                    {machine.name}
+                </h1>
 
-                    <h1 className="text-3xl md:text-4xl font-bold text-[#002B5B]">
-                        {machine.name}
-                    </h1>
+                <p className="text-gray-600 mt-4">
+                    {machine.desc}
+                </p>
 
-                    <p className="text-gray-600 mt-4 text-base md:text-lg leading-relaxed">
-                        {machine.desc}
+                <div className="mt-6 bg-white p-5 rounded-xl shadow">
+                    <p className="text-[#D28E28] font-bold text-xl">
+                        {machine.rate}
                     </p>
-
-                    {/* PRICE BOX */}
-                    <div className="mt-6 bg-white shadow-md rounded-xl p-5 border-l-4 border-[#D28E28]">
-
-                        <p className="text-xl font-bold text-[#D28E28]">
-                            {machine.rate}
-                        </p>
-
-                        <p className="text-gray-500 mt-1">
-                            {machine.note}
-                        </p>
-
-                    </div>
-
-                    {/* EXTRA INFO */}
-                    <div className="mt-10 text-gray-600 space-y-3">
-                        <p>✔ Available for short-term and long-term rental</p>
-                        <p>✔ Operator available on request</p>
-                        <p>✔ Delivery to site can be arranged</p>
-                        <p>✔ 24/7 support for active projects</p>
-                    </div>
-
-                    {/* BUTTON */}
-                    <div className="mt-10">
-
-                        <button
-                            onClick={handleRequest}
-                            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
-                        >
-                            📲 Request on WhatsApp
-                        </button>
-
-                    </div>
-
+                    <p className="text-gray-500">{machine.note}</p>
                 </div>
 
-            </div>
+                <div className="mt-8 text-gray-600 space-y-2">
+                    <p>✔ Available for short and long term rental</p>
+                    <p>✔ Operator available on request</p>
+                    <p>✔ Site delivery available</p>
+                    <p>✔ 24/7 support</p>
+                </div>
 
+                <button className="mt-10 bg-[#002B5B] text-white px-6 py-3 rounded-lg">
+                    Request This Machine
+                </button>
+
+            </div>
         </div>
     );
 };

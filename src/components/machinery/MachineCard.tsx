@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 type Machine = {
     name: string;
     image: string;
     desc: string;
     rate: string;
-    note?: string;
 };
 
 type Props = {
@@ -14,30 +14,18 @@ type Props = {
 
 const MachineCard = ({ machine }: Props) => {
 
-    // 👉 your WhatsApp number (replace if needed)
-    const phoneNumber = "251902989488";
+    const navigate = useNavigate();
 
-    const handleWhatsApp = () => {
-        const message = `
-Hello GGS Infrastructure,
-
-I want to rent this machine:
-
-📌 Machine: ${machine.name}
-💰 Rate: ${machine.rate}
-📝 Details: ${machine.desc}
-
-Please provide availability and booking details.
-        `;
-
-        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-        window.open(url, "_blank");
+    const handleOpen = () => {
+        const slug = machine.name.toLowerCase().replace(/\s/g, "-");
+        navigate(`/services/machinery/${slug}`);
     };
 
     return (
         <motion.div
-            whileHover={{ y: -10 }}
-            className="bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer"
+            whileHover={{ y: -6 }}
+            onClick={handleOpen}
+            className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer"
         >
             <img
                 src={machine.image}
@@ -58,12 +46,8 @@ Please provide availability and booking details.
                     {machine.desc}
                 </p>
 
-                {/* WHATSAPP BUTTON */}
-                <button
-                    onClick={handleWhatsApp}
-                    className="mt-4 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
-                >
-                    📲 Request on WhatsApp
+                <button className="mt-4 w-full bg-[#002B5B] text-white py-2 rounded-lg">
+                    View Details
                 </button>
             </div>
         </motion.div>

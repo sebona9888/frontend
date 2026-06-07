@@ -9,11 +9,23 @@ export default function Footer() {
 
             <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
 
-                {/* COLUMN 1 - BRAND (NO LOGO) */}
+                {/* COLUMN 1 - BRAND (WITH SMALL LOGO ADDED) */}
                 <div>
-                    <h2 className="text-xl font-semibold mb-3 text-white">
-                        GGS Infrastructure PLC
-                    </h2>
+
+                    {/* SMALL PROFESSIONAL LOGO */}
+                    <div className="flex items-center gap-3 mb-4">
+
+                        <img
+                            src="/images/logo.jpg"
+                            alt="GGS Logo"
+                            className="h-10 w-auto object-contain"
+                        />
+
+                        <h2 className="text-lg font-semibold text-white">
+                            GGS Infrastructure PLC
+                        </h2>
+
+                    </div>
 
                     <p className="text-white/70 text-sm leading-relaxed">
                         GGS Infrastructure PLC delivers world-class civil engineering,
@@ -33,7 +45,7 @@ export default function Footer() {
                         <Link className="hover:text-[#D28E28]" to="/services">Services</Link>
                         <Link className="hover:text-[#D28E28]" to="/projects">Projects</Link>
 
-                        {/* NEW TEAM LINK */}
+                        {/* TEAM ADDED */}
                         <Link className="hover:text-[#D28E28]" to="/team">Team</Link>
 
                         <Link className="hover:text-[#D28E28]" to="/contact">Contact</Link>

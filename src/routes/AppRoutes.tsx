@@ -21,6 +21,9 @@ import ProjectDetails from "../pages/ProjectDetails";
 import Team from "../pages/Team";
 import TeamMember from "../pages/TeamMember";
 
+// ✅ ADD THIS IMPORT
+import MachineDetails from "../pages/service-details/MachineDetails";
+
 const AppRoutes = () => {
     return (
         <>
@@ -47,6 +50,12 @@ const AppRoutes = () => {
                 <Route path="/services/electrical-installation" element={<ElectricalInstallation />} />
                 <Route path="/services/machinery-rental" element={<MachineryRental />} />
                 <Route path="/services/engineering-consultancy" element={<EngineeringConsultancy />} />
+
+                {/* MACHINERY DETAILS PAGE (NEW) */}
+                <Route
+                    path="/services/machinery/:name"
+                    element={<MachineDetails />}
+                />
             </Routes>
 
             <Footer />

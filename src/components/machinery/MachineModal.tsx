@@ -18,50 +18,87 @@ const MachineModal = ({ machine, onClose, onRent }: Props) => {
         <AnimatePresence>
             {machine && (
                 <motion.div
-                    className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+                    className="
+                        fixed inset-0 bg-black/70
+                        flex items-center justify-center
+                        z-[9999] p-3 sm:p-4
+                    "
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                 >
                     <motion.div
-                        className="bg-white rounded-2xl max-w-lg w-full overflow-hidden"
+                        className="
+                            bg-white rounded-2xl
+                            w-full max-w-md sm:max-w-lg
+                            overflow-hidden
+                        "
                         initial={{ scale: 0.8 }}
                         animate={{ scale: 1 }}
+                        exit={{ scale: 0.9 }}
                     >
+                        {/* IMAGE */}
                         <img
                             src={machine.image}
                             alt={machine.name}
-                            className="w-full h-64 object-cover"
+                            className="
+                                w-full
+                                h-48 sm:h-56 md:h-64
+                                object-cover
+                            "
                         />
 
-                        <div className="p-6">
-                            <h2 className="text-3xl font-bold text-[#002B5B]">
+                        {/* CONTENT */}
+                        <div className="p-4 sm:p-6">
+
+                            <h2 className="
+                                text-xl sm:text-2xl md:text-3xl
+                                font-bold text-[#002B5B]
+                            ">
                                 {machine.name}
                             </h2>
 
-                            <p className="text-yellow-600 font-bold mt-2">
+                            <p className="
+                                text-yellow-600 font-bold mt-2
+                                text-sm sm:text-base
+                            ">
                                 {machine.rate}
                             </p>
 
-                            <p className="text-gray-600 mt-4">
+                            <p className="
+                                text-gray-600 mt-4 text-sm sm:text-base
+                                leading-relaxed
+                            ">
                                 {machine.desc}
                             </p>
 
-                            <div className="flex gap-3 mt-6">
+                            {/* BUTTONS */}
+                            <div className="
+                                flex flex-col sm:flex-row gap-3 mt-6
+                            ">
                                 <button
                                     onClick={onRent}
-                                    className="flex-1 bg-yellow-500 text-white py-3 rounded-lg"
+                                    className="
+                                        flex-1 bg-yellow-500 text-white
+                                        py-2 sm:py-3 rounded-lg
+                                        hover:bg-yellow-600 transition
+                                    "
                                 >
                                     Rent Now
                                 </button>
 
                                 <button
                                     onClick={onClose}
-                                    className="flex-1 bg-gray-200 py-3 rounded-lg"
+                                    className="
+                                        flex-1 bg-gray-200
+                                        py-2 sm:py-3 rounded-lg
+                                        hover:bg-gray-300 transition
+                                    "
                                 >
                                     Close
                                 </button>
                             </div>
+
                         </div>
                     </motion.div>
                 </motion.div>

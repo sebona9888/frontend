@@ -7,7 +7,7 @@ const Footer = () => {
             {/* TOP ACCENT */}
             <div className="h-1 bg-[#D28E28]" />
 
-            <div className="max-w-7xl mx-auto px-5 md:px-6 py-12 md:py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-6 py-12 md:py-16">
 
                 {/* MAIN GRID */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
@@ -15,16 +15,15 @@ const Footer = () => {
                     {/* COMPANY INFO */}
                     <div className="text-center sm:text-left">
 
-                        <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 mb-5">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 mb-5">
 
-                            {/* CLEAN LOGO ONLY */}
                             <img
                                 src="/images/logo.jpg"
                                 alt="GGS Infrastructure Logo"
-                                className="h-16 md:h-20 w-auto object-contain"
+                                className="h-14 sm:h-16 md:h-20 w-auto object-contain"
                             />
 
-                            <div>
+                            <div className="text-center sm:text-left">
                                 <h2 className="text-xl md:text-3xl font-extrabold leading-tight">
                                     <span className="text-[#D28E28]">GGS</span>
                                 </h2>
@@ -36,21 +35,21 @@ const Footer = () => {
 
                         </div>
 
-                        <p className="text-white/70 text-sm leading-relaxed">
+                        <p className="text-white/70 text-sm leading-relaxed px-2 sm:px-0">
                             GGS Infrastructure PLC delivers high-quality construction,
                             road development, bridge engineering, and civil works
                             across Ethiopia with excellence, innovation, and safety.
                         </p>
                     </div>
 
-                    {/* QUICK LINKS */}
+                    {/* QUICK LINKS (2x3 GRID FIXED) */}
                     <div className="text-center sm:text-left">
 
                         <h3 className="text-lg font-bold mb-5">
                             Quick Links
                         </h3>
 
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-white/70 text-sm">
+                        <ul className="grid grid-cols-2 gap-y-3 gap-x-6 text-white/70 text-sm">
 
                             <li>
                                 <Link to="/" className="hover:text-[#D28E28] transition">
@@ -108,15 +107,15 @@ const Footer = () => {
                         {/* SOCIAL */}
                         <div className="flex flex-wrap justify-center sm:justify-start gap-3 mt-6">
 
-                            <a className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] hover:text-black transition">
+                            <a className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] hover:text-black transition text-sm">
                                 F
                             </a>
 
-                            <a className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] hover:text-black transition">
+                            <a className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] hover:text-black transition text-sm">
                                 in
                             </a>
 
-                            <a className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] hover:text-black transition">
+                            <a className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] hover:text-black transition text-sm">
                                 Tg
                             </a>
 

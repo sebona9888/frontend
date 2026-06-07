@@ -42,43 +42,44 @@ const MachineDetails = () => {
     const { name } = useParams();
 
     const machine = machines.find(
-        (m) =>
-            m.name.toLowerCase().replace(/\s/g, "-") === name
+        (m) => m.name.toLowerCase().replace(/\s/g, "-") === name
     );
 
     if (!machine) {
         return (
-            <div className="pt-28 text-center text-xl">
+            <div className="pt-24 text-center text-xl">
                 Machine Not Found
             </div>
         );
     }
 
     return (
-        <div className="pt-24 md:pt-28 pb-16 bg-gray-50 min-h-screen">
+        <div className="pt-24 md:pt-28 pb-14 bg-gray-50 min-h-screen">
 
-            <div className="max-w-5xl mx-auto px-4">
+            <div className="max-w-4xl mx-auto px-4">
 
-                {/* IMAGE */}
-                <img
-                    src={machine.image}
-                    alt={machine.name}
-                    className="w-full h-[220px] sm:h-[300px] md:h-[380px] lg:h-[420px] object-cover rounded-xl shadow-lg"
-                />
+                {/* IMAGE (SMALLER + CLEAN) */}
+                <div className="rounded-xl overflow-hidden shadow-md">
+                    <img
+                        src={machine.image}
+                        alt={machine.name}
+                        className="w-full h-56 sm:h-72 md:h-80 object-cover"
+                    />
+                </div>
 
                 {/* TITLE */}
-                <h1 className="text-2xl md:text-4xl font-bold mt-6 text-[#002B5B]">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mt-5 text-[#002B5B]">
                     {machine.name}
                 </h1>
 
-                {/* DESC */}
-                <p className="text-gray-600 mt-4 text-sm md:text-base leading-relaxed">
+                {/* DESCRIPTION */}
+                <p className="text-gray-600 mt-3 text-sm sm:text-base leading-relaxed">
                     {machine.desc}
                 </p>
 
                 {/* PRICE BOX */}
-                <div className="mt-6 bg-white p-5 rounded-xl shadow border-l-4 border-[#D28E28]">
-                    <p className="text-[#D28E28] font-bold text-lg md:text-xl">
+                <div className="mt-5 bg-white p-4 rounded-lg shadow border-l-4 border-[#D28E28]">
+                    <p className="text-[#D28E28] font-bold text-base sm:text-lg">
                         {machine.rate}
                     </p>
                     <p className="text-gray-500 text-sm">
@@ -87,15 +88,15 @@ const MachineDetails = () => {
                 </div>
 
                 {/* FEATURES */}
-                <div className="mt-8 text-gray-600 space-y-2 text-sm md:text-base">
-                    <p>✔ Available for short and long term rental</p>
+                <div className="mt-6 text-gray-600 text-sm space-y-2">
+                    <p>✔ Available for short & long term rental</p>
                     <p>✔ Operator available on request</p>
-                    <p>✔ Site delivery available</p>
+                    <p>✔ Delivery to site available</p>
                     <p>✔ 24/7 support for projects</p>
                 </div>
 
                 {/* BUTTON */}
-                <button className="mt-10 bg-[#002B5B] text-white px-6 py-3 rounded-lg hover:bg-[#001a3a] transition w-full sm:w-auto">
+                <button className="mt-8 w-full sm:w-auto bg-[#002B5B] text-white px-6 py-3 rounded-lg hover:bg-[#001a3a] transition">
                     Request This Machine
                 </button>
 

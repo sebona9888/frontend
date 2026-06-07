@@ -110,7 +110,7 @@ const Navbar = () => {
                 <div className="flex flex-col items-center py-6 border-b border-white/10">
 
                     <img
-                        src="/images/logo.png"
+                        src="/images/logo.jpg"
                         alt="GGS Logo"
                         className="h-20 w-auto object-contain"
                     />

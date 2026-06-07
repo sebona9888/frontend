@@ -9,10 +9,10 @@ export default function Footer() {
 
             <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
 
-                {/* COLUMN 1 - BRAND (WITH SMALL LOGO ADDED) */}
+                {/* COLUMN 1 - BRAND */}
                 <div>
 
-                    {/* SMALL PROFESSIONAL LOGO */}
+                    {/* LOGO + BRAND */}
                     <div className="flex items-center gap-3 mb-4">
 
                         <img
@@ -34,7 +34,7 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* COLUMN 2 - LINKS (UPDATED WITH TEAM) */}
+                {/* COLUMN 2 - LINKS */}
                 <div>
                     <h3 className="font-semibold mb-4">Quick Links</h3>
 
@@ -94,7 +94,10 @@ export default function Footer() {
 
             {/* BOTTOM BAR */}
             <div className="border-t border-white/10 py-4 text-center text-white/50 text-xs">
-                © 2026 GGS Infrastructure PLC • Designed & Developed with precision engineering
+                © 2026 GGS Infrastructure PLC • Designed & Developed by{" "}
+                <span className="text-[#D28E28] font-semibold">
+                    SEBONA HAILE
+                </span>
             </div>
 
         </footer>

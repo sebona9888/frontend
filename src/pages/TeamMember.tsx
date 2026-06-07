@@ -8,7 +8,7 @@ const TeamMember = () => {
 
     if (!member) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center pt-48">
                 <h1 className="text-3xl font-bold">
                     Team Member Not Found
                 </h1>
@@ -16,8 +16,15 @@ const TeamMember = () => {
         );
     }
 
+    // Members that need image repositioning (fix head cropping)
+    const topAdjusted = [
+        "ayanasa-abdisa",
+        "guta-jiregna",
+        "girma-haile"
+    ];
+
     return (
-        <section className="min-h-screen bg-gray-50 pt-36 pb-16 px-4">
+        <section className="min-h-screen bg-gray-50 pt-48 pb-16 px-4">
             <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-2xl overflow-visible relative">
 
                 {/* PROFILE IMAGE */}
@@ -28,11 +35,9 @@ const TeamMember = () => {
                             src={member.image}
                             alt={member.name}
                             style={{
-                                objectPosition:
-                                    member.id === "ayanasa-abdisa" ||
-                                        member.id === "guta-jiregna"
-                                        ? "center 15%"
-                                        : "center center",
+                                objectPosition: topAdjusted.includes(member.id)
+                                    ? "center 15%"
+                                    : "center center",
                             }}
                             className="w-48 h-48 md:w-64 md:h-64 object-cover rounded-full border-8 border-white shadow-2xl"
                         />

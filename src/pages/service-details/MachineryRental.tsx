@@ -49,7 +49,7 @@ const MachineryRental = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 pt-24">
 
             {/* HERO */}
             <section className="py-16 text-center bg-white">

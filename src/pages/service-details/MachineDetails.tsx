@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-// IMPORTANT: same machines data (must match your list)
+// same data
 const machines = [
     {
         name: "Hydraulic Excavator",
@@ -42,8 +42,10 @@ const machines = [
 const MachineDetails = () => {
     const { name } = useParams();
 
+    const decodedName = decodeURIComponent(name || "");
+
     const machine = machines.find(
-        (m) => m.name.toLowerCase().replace(/\s/g, "-") === name
+        (m) => m.name === decodedName
     );
 
     if (!machine) {
@@ -56,11 +58,31 @@ const MachineDetails = () => {
         );
     }
 
+    const handleRequest = () => {
+        const phone = "251902989488";
+
+        const message = `
+Hello GGS Infrastructure,
+
+I want to rent:
+
+📌 Machine: ${machine.name}
+💰 Rate: ${machine.rate}
+📝 Description: ${machine.desc}
+        `;
+
+        window.open(
+            `https://wa.me/${phone}?text=${encodeURIComponent(message)}`,
+            "_blank"
+        );
+    };
+
     return (
         <div className="pt-24 min-h-screen bg-gray-50">
 
             {/* IMAGE */}
             <div className="max-w-6xl mx-auto px-4">
+
                 <img
                     src={machine.image}
                     alt={machine.name}
@@ -80,6 +102,7 @@ const MachineDetails = () => {
 
                     {/* PRICE BOX */}
                     <div className="mt-6 bg-white shadow-md rounded-xl p-5 border-l-4 border-[#D28E28]">
+
                         <p className="text-xl font-bold text-[#D28E28]">
                             {machine.rate}
                         </p>
@@ -87,6 +110,7 @@ const MachineDetails = () => {
                         <p className="text-gray-500 mt-1">
                             {machine.note}
                         </p>
+
                     </div>
 
                     {/* EXTRA INFO */}
@@ -99,12 +123,18 @@ const MachineDetails = () => {
 
                     {/* BUTTON */}
                     <div className="mt-10">
-                        <button className="bg-[#002B5B] text-white px-6 py-3 rounded-lg hover:bg-[#001a3a] transition">
-                            Request This Machine
+
+                        <button
+                            onClick={handleRequest}
+                            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition"
+                        >
+                            📲 Request on WhatsApp
                         </button>
+
                     </div>
 
                 </div>
+
             </div>
 
         </div>

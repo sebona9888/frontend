@@ -48,45 +48,54 @@ const MachineDetails = () => {
 
     if (!machine) {
         return (
-            <div className="pt-32 text-center text-xl">
+            <div className="pt-28 text-center text-xl">
                 Machine Not Found
             </div>
         );
     }
 
     return (
-        <div className="pt-28 pb-16 bg-gray-50 min-h-screen">
+        <div className="pt-24 md:pt-28 pb-16 bg-gray-50 min-h-screen">
+
             <div className="max-w-5xl mx-auto px-4">
 
+                {/* IMAGE */}
                 <img
                     src={machine.image}
                     alt={machine.name}
-                    className="w-full h-[400px] object-cover rounded-2xl"
+                    className="w-full h-[220px] sm:h-[300px] md:h-[380px] lg:h-[420px] object-cover rounded-xl shadow-lg"
                 />
 
-                <h1 className="text-3xl md:text-4xl font-bold mt-6 text-[#002B5B]">
+                {/* TITLE */}
+                <h1 className="text-2xl md:text-4xl font-bold mt-6 text-[#002B5B]">
                     {machine.name}
                 </h1>
 
-                <p className="text-gray-600 mt-4">
+                {/* DESC */}
+                <p className="text-gray-600 mt-4 text-sm md:text-base leading-relaxed">
                     {machine.desc}
                 </p>
 
-                <div className="mt-6 bg-white p-5 rounded-xl shadow">
-                    <p className="text-[#D28E28] font-bold text-xl">
+                {/* PRICE BOX */}
+                <div className="mt-6 bg-white p-5 rounded-xl shadow border-l-4 border-[#D28E28]">
+                    <p className="text-[#D28E28] font-bold text-lg md:text-xl">
                         {machine.rate}
                     </p>
-                    <p className="text-gray-500">{machine.note}</p>
+                    <p className="text-gray-500 text-sm">
+                        {machine.note}
+                    </p>
                 </div>
 
-                <div className="mt-8 text-gray-600 space-y-2">
+                {/* FEATURES */}
+                <div className="mt-8 text-gray-600 space-y-2 text-sm md:text-base">
                     <p>✔ Available for short and long term rental</p>
                     <p>✔ Operator available on request</p>
                     <p>✔ Site delivery available</p>
-                    <p>✔ 24/7 support</p>
+                    <p>✔ 24/7 support for projects</p>
                 </div>
 
-                <button className="mt-10 bg-[#002B5B] text-white px-6 py-3 rounded-lg">
+                {/* BUTTON */}
+                <button className="mt-10 bg-[#002B5B] text-white px-6 py-3 rounded-lg hover:bg-[#001a3a] transition w-full sm:w-auto">
                     Request This Machine
                 </button>
 

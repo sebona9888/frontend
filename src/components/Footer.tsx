@@ -4,17 +4,16 @@ export default function Footer() {
     return (
         <footer className="bg-[#002B5B] text-white mt-20">
 
-            {/* TOP BORDER ACCENT */}
+            {/* TOP ACCENT */}
             <div className="h-1 bg-[#D28E28]" />
 
             <div className="max-w-7xl mx-auto px-6 py-14 grid md:grid-cols-3 gap-10">
 
-                {/* COLUMN 1 - BRAND */}
+                {/* COLUMN 1 - BRAND (NO LOGO) */}
                 <div>
-                    <img
-                        src="/images/logo.png"
-                        className="h-10 mb-4 object-contain"
-                    />
+                    <h2 className="text-xl font-semibold mb-3 text-white">
+                        GGS Infrastructure PLC
+                    </h2>
 
                     <p className="text-white/70 text-sm leading-relaxed">
                         GGS Infrastructure PLC delivers world-class civil engineering,
@@ -23,16 +22,22 @@ export default function Footer() {
                     </p>
                 </div>
 
-                {/* COLUMN 2 - LINKS */}
+                {/* COLUMN 2 - LINKS (UPDATED WITH TEAM) */}
                 <div>
                     <h3 className="font-semibold mb-4">Quick Links</h3>
 
                     <div className="grid grid-cols-2 gap-2 text-sm text-white/70">
+
                         <Link className="hover:text-[#D28E28]" to="/">Home</Link>
                         <Link className="hover:text-[#D28E28]" to="/about">About</Link>
                         <Link className="hover:text-[#D28E28]" to="/services">Services</Link>
                         <Link className="hover:text-[#D28E28]" to="/projects">Projects</Link>
+
+                        {/* NEW TEAM LINK */}
+                        <Link className="hover:text-[#D28E28]" to="/team">Team</Link>
+
                         <Link className="hover:text-[#D28E28]" to="/contact">Contact</Link>
+
                     </div>
                 </div>
 
@@ -72,12 +77,14 @@ export default function Footer() {
 
                     </div>
                 </div>
+
             </div>
 
             {/* BOTTOM BAR */}
             <div className="border-t border-white/10 py-4 text-center text-white/50 text-xs">
                 © 2026 GGS Infrastructure PLC • Designed & Developed with precision engineering
             </div>
+
         </footer>
     );
 }

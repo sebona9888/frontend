@@ -16,7 +16,7 @@ type Props = {
 
 const MachineModal = ({ machine, onClose, onRent }: Props) => {
 
-    // 🔥 lock background scroll when modal is open
+    // lock background scroll
     useEffect(() => {
         if (machine) {
             document.body.style.overflow = "hidden";
@@ -35,9 +35,8 @@ const MachineModal = ({ machine, onClose, onRent }: Props) => {
                 <motion.div
                     className="
                         fixed inset-0 bg-black/70
-                        flex items-start justify-center
-                        z-[99999] p-4 pt-20
-                        overflow-y-auto
+                        flex items-center justify-center
+                        z-[99999] p-4
                     "
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -49,7 +48,7 @@ const MachineModal = ({ machine, onClose, onRent }: Props) => {
                         className="
                             bg-white rounded-2xl
                             w-full max-w-md sm:max-w-lg
-                            max-h-[85vh] overflow-y-auto
+                            max-h-[90vh] overflow-y-auto
                             shadow-2xl
                         "
                         initial={{ scale: 0.85 }}

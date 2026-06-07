@@ -17,7 +17,7 @@ export const team = [
         ],
 
         highlights: [
-            "Top scorer with 4.0 GPA in matric examination",
+            "Top scorer with in matric examination",
             "Recognized at West Shoa Education Office for academic excellence",
             "Data collection for Addis Ababa Transport Bureau",
             "WFTR field research & reporting experience",

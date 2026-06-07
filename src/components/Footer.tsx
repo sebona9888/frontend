@@ -15,16 +15,16 @@ const Footer = () => {
                     {/* COMPANY INFO */}
                     <div className="text-center sm:text-left">
 
-                        <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 mb-5">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 mb-5">
 
-                            {/* CLEAN LOGO ONLY */}
+                            {/* CLEAN LOGO (FIXED) */}
                             <img
                                 src="/images/logo.jpg"
                                 alt="GGS Infrastructure Logo"
                                 className="h-16 md:h-20 w-auto object-contain"
                             />
 
-                            <div>
+                            <div className="text-center sm:text-left">
                                 <h2 className="text-xl md:text-3xl font-extrabold leading-tight">
                                     <span className="text-[#D28E28]">GGS</span>
                                 </h2>
@@ -50,7 +50,7 @@ const Footer = () => {
                             Quick Links
                         </h3>
 
-                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-white/70 text-sm">
+                        <ul className="grid grid-cols-2 sm:grid-cols-2 gap-y-3 gap-x-6 text-white/70 text-sm">
 
                             <li>
                                 <Link to="/" className="hover:text-[#D28E28] transition">

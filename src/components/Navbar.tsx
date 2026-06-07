@@ -39,14 +39,13 @@ const Navbar = () => {
                         />
                     </button>
 
-                    {/* LOGO (FIXED - NO WHITE BOX) */}
+                    {/* LOGO (NOW PNG - CLEAN) */}
                     <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
 
-                        {/* ONLY IMAGE - CLEAN */}
                         <img
                             src="/images/logo.jpg"
                             alt="GGS Logo"
-                            className="h-14 md:h-16 lg:h-20 w-auto object-contain bg-transparent"
+                            className="h-14 md:h-16 lg:h-20 w-auto object-contain"
                         />
 
                         <div>
@@ -107,13 +106,13 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* MOBILE LOGO (CLEAN) */}
+                {/* MOBILE LOGO (PNG CLEAN) */}
                 <div className="flex flex-col items-center py-6 border-b border-white/10">
 
                     <img
-                        src="/images/logo.jpg"
+                        src="/images/logo.png"
                         alt="GGS Logo"
-                        className="h-20 w-auto object-contain bg-transparent"
+                        className="h-20 w-auto object-contain"
                     />
 
                     <h3 className="text-white font-bold mt-3">

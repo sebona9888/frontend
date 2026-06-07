@@ -14,7 +14,7 @@
     "noEmit": true
   },
   "include": [
-    "vite.config.ts"
+    "vite.config.*"
   ],
   "exclude": [
     "node_modules"

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 type Machine = {
@@ -14,6 +15,20 @@ type Props = {
 };
 
 const MachineModal = ({ machine, onClose, onRent }: Props) => {
+
+    // 🔥 Prevent background scroll when modal opens
+    useEffect(() => {
+        if (machine) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, [machine]);
+
     return (
         <AnimatePresence>
             {machine && (
@@ -21,22 +36,26 @@ const MachineModal = ({ machine, onClose, onRent }: Props) => {
                     className="
                         fixed inset-0 bg-black/70
                         flex items-center justify-center
-                        z-[9999] p-3 sm:p-4
+                        z-[99999] p-4
                     "
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                 >
+
+                    {/* MODAL BOX */}
                     <motion.div
                         className="
                             bg-white rounded-2xl
                             w-full max-w-md sm:max-w-lg
-                            overflow-hidden
+                            max-h-[90vh] overflow-y-auto
+                            shadow-2xl
                         "
-                        initial={{ scale: 0.8 }}
+                        initial={{ scale: 0.85 }}
                         animate={{ scale: 1 }}
                         exit={{ scale: 0.9 }}
                     >
+
                         {/* IMAGE */}
                         <img
                             src={machine.image}
@@ -101,6 +120,7 @@ const MachineModal = ({ machine, onClose, onRent }: Props) => {
 
                         </div>
                     </motion.div>
+
                 </motion.div>
             )}
         </AnimatePresence>

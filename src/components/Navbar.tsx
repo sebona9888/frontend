@@ -25,13 +25,23 @@ const Navbar = () => {
                         onClick={() => setOpen(!open)}
                         className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
                     >
-                        <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""}`} />
-                        <span className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : ""}`} />
-                        <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""}`} />
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""
+                                }`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : ""
+                                }`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""
+                                }`}
+                        />
                     </button>
 
                     {/* LOGO */}
                     <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
+
                         <img
                             src="/images/logo.jpg"
                             alt="GGS Logo"
@@ -47,6 +57,7 @@ const Navbar = () => {
                                 INFRASTRUCTURE PLC
                             </p>
                         </div>
+
                     </div>
 
                     {/* DESKTOP MENU */}
@@ -65,6 +76,7 @@ const Navbar = () => {
                             </NavLink>
                         ))}
                     </nav>
+
                 </div>
             </header>
 
@@ -81,27 +93,19 @@ const Navbar = () => {
                 className={`fixed top-0 left-0 h-full w-72 bg-[#111827] z-[1002] transform transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
-                {/* MENU HEADER */}
+
+                {/* CLEAN MENU HEADER */}
                 <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
-                    <h2 className="text-white font-bold text-lg">Menu</h2>
+                    <h2 className="text-white font-bold text-lg tracking-wide">
+                        Menu
+                    </h2>
 
                     <button
                         onClick={() => setOpen(false)}
-                        className="text-white text-2xl hover:text-[#D28E28]"
+                        className="text-white text-2xl hover:text-[#D28E28] transition"
                     >
                         ✕
                     </button>
-                </div>
-
-                {/* CLEAN MOBILE LOGO */}
-                <div className="flex justify-center items-center py-6 px-4 border-b border-white/10">
-                    <div className="bg-white/5 rounded-xl p-3 flex items-center justify-center">
-                        <img
-                            src="/images/logo.jpg"
-                            alt="GGS Logo"
-                            className="max-h-16 w-auto object-contain"
-                        />
-                    </div>
                 </div>
 
                 {/* MENU LINKS */}
@@ -121,6 +125,7 @@ const Navbar = () => {
                         </NavLink>
                     ))}
                 </div>
+
             </div>
         </>
     );

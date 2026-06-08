@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const { t, i18n } = useTranslation();
 
     const links = [
-        { name: "Home", path: "/" },
-        { name: "About", path: "/about" },
-        { name: "Services", path: "/services" },
-        { name: "Projects", path: "/projects" },
-        { name: "Careers", path: "/careers" },
-        { name: "Team", path: "/team" },
-        { name: "Contact", path: "/contact" }
+        { name: t("home"), path: "/" },
+        { name: t("about"), path: "/about" },
+        { name: t("services"), path: "/services" },
+        { name: t("projects"), path: "/projects" },
+        { name: t("careers"), path: "/careers" },
+        { name: t("team"), path: "/team" },
+        { name: t("contact"), path: "/contact" }
     ];
 
     return (
@@ -41,7 +43,6 @@ const Navbar = () => {
 
                     {/* LOGO */}
                     <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
-
                         <img
                             src="/images/logo.jpg"
                             alt="GGS Logo"
@@ -57,26 +58,37 @@ const Navbar = () => {
                                 INFRASTRUCTURE PLC
                             </p>
                         </div>
-
                     </div>
 
                     {/* DESKTOP MENU */}
-                    <nav className="hidden md:flex gap-8 text-white font-medium">
-                        {links.map((l) => (
-                            <NavLink
-                                key={l.path}
-                                to={l.path}
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "text-[#D28E28] transition-colors"
-                                        : "hover:text-[#D28E28] transition-colors"
-                                }
-                            >
-                                {l.name}
-                            </NavLink>
-                        ))}
-                    </nav>
+                    <div className="hidden md:flex items-center gap-8">
+                        <nav className="flex gap-8 text-white font-medium">
+                            {links.map((l) => (
+                                <NavLink
+                                    key={l.path}
+                                    to={l.path}
+                                    className={({ isActive }) =>
+                                        isActive
+                                            ? "text-[#D28E28] transition-colors"
+                                            : "hover:text-[#D28E28] transition-colors"
+                                    }
+                                >
+                                    {l.name}
+                                </NavLink>
+                            ))}
+                        </nav>
 
+                        {/* LANGUAGE SWITCHER */}
+                        <select
+                            value={i18n.language}
+                            onChange={(e) => i18n.changeLanguage(e.target.value)}
+                            className="bg-[#111827] text-white border border-[#D28E28] rounded px-3 py-1 text-sm outline-none"
+                        >
+                            <option value="en">EN</option>
+                            <option value="am">አማ</option>
+                            <option value="om">ORM</option>
+                        </select>
+                    </div>
                 </div>
             </header>
 
@@ -93,11 +105,10 @@ const Navbar = () => {
                 className={`fixed top-0 left-0 h-full w-72 bg-[#111827] z-[1002] transform transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
-
-                {/* CLEAN MENU HEADER */}
+                {/* MENU HEADER */}
                 <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
                     <h2 className="text-white font-bold text-lg tracking-wide">
-                        Menu
+                        {t("menu")}
                     </h2>
 
                     <button
@@ -108,7 +119,20 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* MENU LINKS */}
+                {/* MOBILE LANGUAGE SWITCHER */}
+                <div className="px-6 py-4 border-b border-white/10">
+                    <select
+                        value={i18n.language}
+                        onChange={(e) => i18n.changeLanguage(e.target.value)}
+                        className="w-full bg-[#1F2937] text-white border border-[#D28E28] rounded px-3 py-2 outline-none"
+                    >
+                        <option value="en">English</option>
+                        <option value="am">አማርኛ</option>
+                        <option value="om">Afaan Oromoo</option>
+                    </select>
+                </div>
+
+                {/* MOBILE LINKS */}
                 <div className="flex flex-col gap-6 px-6 py-6">
                     {links.map((l) => (
                         <NavLink
@@ -125,7 +149,6 @@ const Navbar = () => {
                         </NavLink>
                     ))}
                 </div>
-
             </div>
         </>
     );

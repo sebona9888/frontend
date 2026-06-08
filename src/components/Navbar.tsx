@@ -6,14 +6,15 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const { t, i18n } = useTranslation();
 
+    // ✅ ONLY KEYS (IMPORTANT FIX)
     const links = [
-        { name: t("home"), path: "/" },
-        { name: t("about"), path: "/about" },
-        { name: t("services"), path: "/services" },
-        { name: t("projects"), path: "/projects" },
-        { name: t("careers"), path: "/careers" },
-        { name: t("team"), path: "/team" },
-        { name: t("contact"), path: "/contact" }
+        { key: "home", path: "/" },
+        { key: "about", path: "/about" },
+        { key: "services", path: "/services" },
+        { key: "projects", path: "/projects" },
+        { key: "careers", path: "/careers" },
+        { key: "team", path: "/team" },
+        { key: "contact", path: "/contact" }
     ];
 
     return (
@@ -27,18 +28,9 @@ const Navbar = () => {
                         onClick={() => setOpen(!open)}
                         className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
                     >
-                        <span
-                            className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""
-                                }`}
-                        />
-                        <span
-                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : ""
-                                }`}
-                        />
-                        <span
-                            className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""
-                                }`}
-                        />
+                        <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""}`} />
+                        <span className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : ""}`} />
+                        <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""}`} />
                     </button>
 
                     {/* LOGO */}
@@ -65,7 +57,7 @@ const Navbar = () => {
                         <nav className="flex gap-8 text-white font-medium">
                             {links.map((l) => (
                                 <NavLink
-                                    key={l.path}
+                                    key={l.key}
                                     to={l.path}
                                     className={({ isActive }) =>
                                         isActive
@@ -73,7 +65,7 @@ const Navbar = () => {
                                             : "hover:text-[#D28E28] transition-colors"
                                     }
                                 >
-                                    {l.name}
+                                    {t(`nav.${l.key}`)}
                                 </NavLink>
                             ))}
                         </nav>
@@ -108,7 +100,7 @@ const Navbar = () => {
                 {/* MENU HEADER */}
                 <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
                     <h2 className="text-white font-bold text-lg tracking-wide">
-                        {t("menu")}
+                        {t("nav.menu")}
                     </h2>
 
                     <button
@@ -119,7 +111,7 @@ const Navbar = () => {
                     </button>
                 </div>
 
-                {/* MOBILE LANGUAGE SWITCHER */}
+                {/* MOBILE LANGUAGE */}
                 <div className="px-6 py-4 border-b border-white/10">
                     <select
                         value={i18n.language}
@@ -136,7 +128,7 @@ const Navbar = () => {
                 <div className="flex flex-col gap-6 px-6 py-6">
                     {links.map((l) => (
                         <NavLink
-                            key={l.path}
+                            key={l.key}
                             to={l.path}
                             onClick={() => setOpen(false)}
                             className={({ isActive }) =>
@@ -145,7 +137,7 @@ const Navbar = () => {
                                     : "text-white hover:text-[#D28E28] transition-colors"
                             }
                         >
-                            {l.name}
+                            {t(`nav.${l.key}`)}
                         </NavLink>
                     ))}
                 </div>

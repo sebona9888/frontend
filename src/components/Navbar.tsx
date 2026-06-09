@@ -6,7 +6,11 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
     const { t, i18n } = useTranslation();
 
-    // ✅ ONLY KEYS (IMPORTANT FIX)
+    const handleLanguageChange = (lang: string) => {
+        i18n.changeLanguage(lang);
+        localStorage.setItem("language", lang);
+    };
+
     const links = [
         { key: "home", path: "/" },
         { key: "about", path: "/about" },
@@ -73,7 +77,7 @@ const Navbar = () => {
                         {/* LANGUAGE SWITCHER */}
                         <select
                             value={i18n.language}
-                            onChange={(e) => i18n.changeLanguage(e.target.value)}
+                            onChange={(e) => handleLanguageChange(e.target.value)}
                             className="bg-[#111827] text-white border border-[#D28E28] rounded px-3 py-1 text-sm outline-none"
                         >
                             <option value="en">EN</option>
@@ -115,7 +119,7 @@ const Navbar = () => {
                 <div className="px-6 py-4 border-b border-white/10">
                     <select
                         value={i18n.language}
-                        onChange={(e) => i18n.changeLanguage(e.target.value)}
+                        onChange={(e) => handleLanguageChange(e.target.value)}
                         className="w-full bg-[#1F2937] text-white border border-[#D28E28] rounded px-3 py-2 outline-none"
                     >
                         <option value="en">English</option>

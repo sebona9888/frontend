@@ -4,12 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const { t, i18n } = useTranslation();
-
-    const handleLanguageChange = (lang: string) => {
-        i18n.changeLanguage(lang);
-        localStorage.setItem("language", lang);
-    };
+    const { t } = useTranslation();
 
     const links = [
         { key: "home", path: "/" },
@@ -73,17 +68,6 @@ const Navbar = () => {
                                 </NavLink>
                             ))}
                         </nav>
-
-                        {/* LANGUAGE SWITCHER */}
-                        <select
-                            value={i18n.language}
-                            onChange={(e) => handleLanguageChange(e.target.value)}
-                            className="bg-[#111827] text-white border border-[#D28E28] rounded px-3 py-1 text-sm outline-none"
-                        >
-                            <option value="en">EN</option>
-                            <option value="am">አማ</option>
-                            <option value="om">ORM</option>
-                        </select>
                     </div>
                 </div>
             </header>
@@ -113,19 +97,6 @@ const Navbar = () => {
                     >
                         ✕
                     </button>
-                </div>
-
-                {/* MOBILE LANGUAGE */}
-                <div className="px-6 py-4 border-b border-white/10">
-                    <select
-                        value={i18n.language}
-                        onChange={(e) => handleLanguageChange(e.target.value)}
-                        className="w-full bg-[#1F2937] text-white border border-[#D28E28] rounded px-3 py-2 outline-none"
-                    >
-                        <option value="en">English</option>
-                        <option value="am">አማርኛ</option>
-                        <option value="om">Afaan Oromoo</option>
-                    </select>
                 </div>
 
                 {/* MOBILE LINKS */}

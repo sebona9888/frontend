@@ -1,19 +1,17 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const { t } = useTranslation();
 
     const links = [
-        { key: "home", path: "/" },
-        { key: "about", path: "/about" },
-        { key: "services", path: "/services" },
-        { key: "projects", path: "/projects" },
-        { key: "careers", path: "/careers" },
-        { key: "team", path: "/team" },
-        { key: "contact", path: "/contact" }
+        { name: "Home", path: "/" },
+        { name: "About", path: "/about" },
+        { name: "Services", path: "/services" },
+        { name: "Projects", path: "/projects" },
+        { name: "Careers", path: "/careers" },
+        { name: "Team", path: "/team" },
+        { name: "Contact", path: "/contact" }
     ];
 
     return (
@@ -56,7 +54,7 @@ const Navbar = () => {
                         <nav className="flex gap-8 text-white font-medium">
                             {links.map((l) => (
                                 <NavLink
-                                    key={l.key}
+                                    key={l.name}
                                     to={l.path}
                                     className={({ isActive }) =>
                                         isActive
@@ -64,7 +62,7 @@ const Navbar = () => {
                                             : "hover:text-[#D28E28] transition-colors"
                                     }
                                 >
-                                    {t(`nav.${l.key}`)}
+                                    {l.name}
                                 </NavLink>
                             ))}
                         </nav>
@@ -88,7 +86,7 @@ const Navbar = () => {
                 {/* MENU HEADER */}
                 <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
                     <h2 className="text-white font-bold text-lg tracking-wide">
-                        {t("nav.menu")}
+                        Menu
                     </h2>
 
                     <button
@@ -103,7 +101,7 @@ const Navbar = () => {
                 <div className="flex flex-col gap-6 px-6 py-6">
                     {links.map((l) => (
                         <NavLink
-                            key={l.key}
+                            key={l.name}
                             to={l.path}
                             onClick={() => setOpen(false)}
                             className={({ isActive }) =>
@@ -112,7 +110,7 @@ const Navbar = () => {
                                     : "text-white hover:text-[#D28E28] transition-colors"
                             }
                         >
-                            {t(`nav.${l.key}`)}
+                            {l.name}
                         </NavLink>
                     ))}
                 </div>

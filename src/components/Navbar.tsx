@@ -42,7 +42,7 @@ const Navbar = () => {
                     {/* LOGO */}
                     <div className="flex items-center gap-2 flex-1 justify-center md:justify-start">
                         <img
-                            src="/images/logo.png"
+                            src="/images/logo.jpg"
                             alt="GGS Logo"
                             className="h-10 md:h-12 lg:h-14 w-auto object-contain"
                         />

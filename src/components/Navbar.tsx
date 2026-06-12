@@ -1,6 +1,21 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+
+// Inline icons (no external dependency)
+const MenuIcon = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+    </svg>
+);
+
+const CloseIcon = ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+);
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -21,7 +36,7 @@ const Navbar = () => {
 
         document.body.style.overflow = "hidden";
 
-        const onKeyDown = (e: KeyboardEvent) => {
+        const onKeyDown = (e) => {
             if (e.key === "Escape") setOpen(false);
         };
         window.addEventListener("keydown", onKeyDown);
@@ -46,7 +61,7 @@ const Navbar = () => {
                         aria-controls="mobile-menu"
                         className="md:hidden relative w-10 h-10 flex items-center justify-center text-white hover:text-[#FF6B00] transition-colors"
                     >
-                        <Menu className="w-6 h-6" />
+                        <MenuIcon className="w-6 h-6" />
                     </button>
 
                     {/* LOGO */}
@@ -116,7 +131,7 @@ const Navbar = () => {
                         aria-label="Close menu"
                         className="text-white hover:text-[#FF6B00] transition-colors"
                     >
-                        <X className="w-6 h-6" />
+                        <CloseIcon className="w-6 h-6" />
                     </button>
                 </div>
 

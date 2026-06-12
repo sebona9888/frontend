@@ -17,33 +17,42 @@ const Navbar = () => {
     return (
         <>
             {/* NAVBAR */}
-            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#0B0F14]/95 backdrop-blur-md shadow-lg border-b border-white/10">
-                <div className="max-w-7xl mx-auto px-5 md:px-6 py-2 flex items-center justify-between">
+            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#243447]/95 backdrop-blur-md shadow-lg border-b border-white/20">
+                <div className="max-w-7xl mx-auto px-5 md:px-6 py-1 flex items-center justify-between">
 
                     {/* MOBILE HAMBURGER */}
                     <button
                         onClick={() => setOpen(!open)}
                         className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
                     >
-                        <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""}`} />
-                        <span className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : ""}`} />
-                        <span className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""}`} />
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""
+                                }`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : ""
+                                }`}
+                        />
+                        <span
+                            className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "-rotate-45 -translate-y-1.5" : ""
+                                }`}
+                        />
                     </button>
 
                     {/* LOGO */}
-                    <div className="flex items-center gap-3 flex-1 justify-center md:justify-start">
+                    <div className="flex items-center gap-2 flex-1 justify-center md:justify-start">
                         <img
-                            src="/images/logo.jpg"
+                            src="/images/logo.png"
                             alt="GGS Logo"
-                            className="h-14 md:h-16 lg:h-20 w-auto object-contain"
+                            className="h-10 md:h-12 lg:h-14 w-auto object-contain"
                         />
 
                         <div>
-                            <h1 className="text-white font-bold text-base md:text-lg lg:text-xl tracking-wide leading-tight">
+                            <h1 className="text-white font-bold text-sm md:text-base lg:text-lg tracking-wide leading-tight">
                                 GGS
                             </h1>
 
-                            <p className="text-[#D28E28] text-xs md:text-sm font-semibold tracking-wider">
+                            <p className="text-[#D28E28] text-[10px] md:text-xs font-semibold tracking-wider">
                                 INFRASTRUCTURE PLC
                             </p>
                         </div>
@@ -74,17 +83,17 @@ const Navbar = () => {
             {open && (
                 <div
                     onClick={() => setOpen(false)}
-                    className="fixed inset-0 bg-black/60 z-[1001]"
+                    className="fixed inset-0 bg-black/30 z-[1001]"
                 />
             )}
 
             {/* MOBILE MENU */}
             <div
-                className={`fixed top-0 left-0 h-full w-72 bg-[#111827] z-[1002] transform transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"
+                className={`fixed top-0 left-0 h-full w-72 bg-[#2C3E50] z-[1002] transform transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
                 {/* MENU HEADER */}
-                <div className="flex justify-between items-center px-5 py-5 border-b border-white/10">
+                <div className="flex justify-between items-center px-5 py-5 border-b border-white/20">
                     <h2 className="text-white font-bold text-lg tracking-wide">
                         Menu
                     </h2>

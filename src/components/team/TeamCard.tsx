@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 type Member = {
-    _id: string;
+    _id?: string;
+    id?: string;
     name: string;
     role: string;
     image: string;
@@ -19,30 +20,20 @@ type Props = {
 
 const TeamCard = ({ member, index }: Props) => {
     return (
-        <Link to={`/team/${member._id}`}>
+        <Link to={`/team/${member._id || member.id}`}>
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="
-                    bg-white rounded-2xl shadow-md overflow-hidden
-                    cursor-pointer hover:shadow-xl transition
-                    active:scale-[0.98]
-                "
+                className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition active:scale-[0.98]"
             >
                 {/* IMAGE */}
                 <div className="h-56 sm:h-64 md:h-72 lg:h-80 w-full overflow-hidden bg-gray-100">
                     <img
                         src={member.image}
                         alt={member.name}
-                        className="
-                            w-full h-full
-                            object-cover
-                            object-[50%_15%]
-                            hover:scale-105
-                            transition duration-300
-                        "
+                        className="w-full h-full object-cover object-[50%_15%] hover:scale-105 transition duration-300"
                     />
                 </div>
 

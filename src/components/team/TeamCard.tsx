@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 type Member = {
-    id: string;
+    _id: string;
     name: string;
     role: string;
     image: string;
@@ -19,7 +19,7 @@ type Props = {
 
 const TeamCard = ({ member, index }: Props) => {
     return (
-        <Link to={`/team/${member.id}`}>
+        <Link to={`/team/${member._id}`}>
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}

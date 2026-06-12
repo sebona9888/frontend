@@ -7,9 +7,6 @@ type Member = {
     name: string;
     role: string;
     image: string;
-    phone?: string;
-    education?: string;
-    experience?: string;
     bio?: string;
 };
 
@@ -19,31 +16,34 @@ type Props = {
 };
 
 const TeamCard = ({ member, index }: Props) => {
+    const memberId = member._id || member.id || "";
+
+    if (!memberId) return null;
+
     return (
-        <Link to={`/team/${member._id || member.id}`}>
+        <Link to={`/team/${memberId}`}>
             <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition active:scale-[0.98]"
             >
                 {/* IMAGE */}
-                <div className="h-56 sm:h-64 md:h-72 lg:h-80 w-full overflow-hidden bg-gray-100">
+                <div className="h-64 w-full overflow-hidden bg-gray-100">
                     <img
-                        src={member.image}
+                        src={member.image || "https://via.placeholder.com/400"}
                         alt={member.name}
-                        className="w-full h-full object-cover object-[50%_15%] hover:scale-105 transition duration-300"
+                        className="w-full h-full object-cover"
                     />
                 </div>
 
                 {/* INFO */}
-                <div className="p-4 sm:p-5 md:p-6 text-center">
-                    <h2 className="text-lg sm:text-xl font-bold text-gray-900">
+                <div className="p-5 text-center">
+                    <h2 className="text-lg font-bold text-gray-900">
                         {member.name}
                     </h2>
 
-                    <p className="text-sm sm:text-base text-gray-600 mt-1">
+                    <p className="text-gray-600 mt-1">
                         {member.role}
                     </p>
 

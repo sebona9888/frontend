@@ -30,7 +30,11 @@ const TeamGrid = () => {
                     "http://localhost:5000/api/team"
                 );
 
-                const formatted: Member[] = res.data.data.map((m) => ({
+                console.log("API RESPONSE:", res.data);
+
+                const apiData = res.data?.data ?? [];
+
+                const formatted: Member[] = apiData.map((m) => ({
                     id: m._id,
                     name: m.name,
                     role: m.role,
@@ -38,20 +42,13 @@ const TeamGrid = () => {
                     image: m.image,
                 }));
 
+                console.log("FORMATTED DATA:", formatted);
+
                 setTeam(formatted);
             } catch (error) {
                 console.error("Backend failed, using static data", error);
 
-                const fallback: Member[] = mockTeam.map((m: unknown) => {
-                    const mm = m as Member;
-                    return {
-                        id: mm.id,
-                        name: mm.name,
-                        role: mm.role,
-                        bio: mm.bio,
-                        image: mm.image,
-                    };
-                });
+                const fallback: Member[] = mockTeam;
 
                 setTeam(fallback);
             } finally {
@@ -63,7 +60,11 @@ const TeamGrid = () => {
     }, []);
 
     if (loading) {
-        return <div className="text-center py-10 text-gray-500">Loading team...</div>;
+        return (
+            <div className="text-center py-10 text-gray-500">
+                Loading team...
+            </div>
+        );
     }
 
     return (

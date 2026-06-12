@@ -1,8 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+
+    // Close mobile menu when pressing Escape key
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setOpen(false);
+        };
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, []);
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => {
+            document.body.style.overflow = "";
+        };
+    }, [open]);
 
     const links = [
         { name: "Home", path: "/" },
@@ -16,21 +37,23 @@ const Navbar = () => {
 
     return (
         <>
-            {/* NAVBAR */}
-            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#1A2530]/95 backdrop-blur-md shadow-xl border-b border-[#FF6B00]/20">
-                <div className="max-w-7xl mx-auto px-5 md:px-6 py-2 flex items-center justify-between">
+            {/* NAVBAR HEADER */}
+            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#1A2530]/95 backdrop-blur-md shadow-xl border-b border-[#FF6B00]/10 transition-all duration-300">
+                <div className="max-w-7xl mx-auto px-5 md:px-8 py-3 flex items-center justify-between relative min-h-[64px] md:min-h-[72px]">
 
-                    {/* MOBILE HAMBURGER */}
+                    {/* MOBILE HAMBURGER (Absolutely positioned on mobile to ensure logo centers perfectly) */}
                     <button
                         onClick={() => setOpen(!open)}
-                        className="md:hidden relative w-10 h-10 flex flex-col justify-center items-center z-[1100]"
+                        className="md:hidden absolute left-5 top-1/2 -translate-y-1/2 w-10 h-10 flex flex-col justify-center items-center rounded-full hover:bg-white/5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/50"
+                        aria-label={open ? "Close menu" : "Open menu"}
+                        aria-expanded={open}
                     >
                         <span
                             className={`block h-0.5 w-6 bg-white transition-all duration-300 ${open ? "rotate-45 translate-y-1.5" : ""
                                 }`}
                         />
                         <span
-                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : ""
+                            className={`block h-0.5 w-6 bg-white my-1 transition-all duration-300 ${open ? "opacity-0" : "opacity-100"
                                 }`}
                         />
                         <span
@@ -39,90 +62,101 @@ const Navbar = () => {
                         />
                     </button>
 
-                    {/* LOGO */}
-                    <div className="flex items-center gap-2 flex-1 justify-center md:justify-start">
+                    {/* LOGO AREA (Centered on mobile, left-aligned on desktop) */}
+                    <div className="flex items-center gap-3 mx-auto md:mx-0 select-none">
                         <img
                             src="/images/logo.jpg"
                             alt="GGS Logo"
-                            className="h-8 md:h-10 lg:h-12 w-auto object-contain"
+                            className="h-9 md:h-11 w-auto object-contain rounded-sm"
                         />
-
-                        <div>
-                            <h1 className="text-white font-bold text-sm md:text-base lg:text-lg tracking-wide leading-tight">
+                        <div className="flex flex-col">
+                            <span className="text-white font-extrabold text-base md:text-lg tracking-wider leading-none">
                                 GGS
-                            </h1>
-
-                            <p className="text-[#FF6B00] text-[10px] md:text-xs font-semibold tracking-wider">
+                            </span>
+                            <span className="text-[#FF6B00] text-[9px] md:text-[10px] font-bold tracking-widest leading-none mt-1">
                                 INFRASTRUCTURE PLC
-                            </p>
+                            </span>
                         </div>
                     </div>
 
                     {/* DESKTOP MENU */}
-                    <div className="hidden md:flex items-center gap-8">
-                        <nav className="flex gap-8 font-medium">
-                            {links.map((l) => (
-                                <NavLink
-                                    key={l.name}
-                                    to={l.path}
-                                    className={({ isActive }) =>
-                                        isActive
-                                            ? "text-[#FF6B00] font-semibold transition-colors"
-                                            : "text-white hover:text-[#FF6B00] transition-colors"
-                                    }
-                                >
-                                    {l.name}
-                                </NavLink>
-                            ))}
-                        </nav>
-                    </div>
+                    <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+                        {links.map((l) => (
+                            <NavLink
+                                key={l.name}
+                                to={l.path}
+                                className={({ isActive }) =>
+                                    `relative py-2 text-sm font-medium transition-colors duration-300 hover:text-[#FF6B00] focus:outline-none focus:text-[#FF6B00] ${isActive ? "text-[#FF6B00]" : "text-slate-300"
+                                    }`
+                                }
+                            >
+                                {({ isActive }) => (
+                                    <>
+                                        {l.name}
+                                        {/* Premium active slide underline */}
+                                        <span
+                                            className={`absolute bottom-0 left-0 w-full h-[2px] bg-[#FF6B00] transition-transform duration-300 origin-left ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                                                }`}
+                                        />
+                                    </>
+                                )}
+                            </NavLink>
+                        ))}
+                    </nav>
                 </div>
             </header>
 
-            {/* OVERLAY */}
-            {open && (
+            {/* OVERLAY & DRAWER CONTAINER (Lifted outside header stacking context to z-[1001]+) */}
+            <div className={`fixed inset-0 z-[1100] pointer-events-none transition-all duration-300 ${open ? "opacity-100" : "opacity-0"}`}>
+
+                {/* Backdrop Blur Overlay */}
                 <div
                     onClick={() => setOpen(false)}
-                    className="fixed inset-0 bg-black/50 z-[1001]"
+                    className={`absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 ${open ? "pointer-events-auto opacity-100" : "opacity-0"
+                        }`}
                 />
-            )}
 
-            {/* MOBILE MENU */}
-            <div
-                className={`fixed top-0 left-0 h-full w-72 bg-[#222222] z-[1002] transform transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"
-                    }`}
-            >
-                {/* MENU HEADER */}
-                <div className="flex justify-between items-center px-5 py-5 border-b border-[#FF6B00]/20">
-                    <h2 className="text-white font-bold text-lg tracking-wide">
-                        Menu
-                    </h2>
+                {/* Mobile Navigation Drawer (Consistent brand bg `#131B24`) */}
+                <aside
+                    className={`absolute top-0 left-0 h-full w-72 bg-[#131B24] border-r border-[#FF6B00]/10 shadow-2xl flex flex-col pointer-events-auto transform transition-transform duration-300 ease-out ${open ? "translate-x-0" : "-translate-x-full"
+                        }`}
+                    aria-label="Mobile Navigation"
+                >
+                    {/* Drawer Header */}
+                    <div className="flex justify-between items-center px-6 py-5 border-b border-[#FF6B00]/10">
+                        <div className="flex items-center gap-2">
+                            <span className="text-white font-extrabold text-lg tracking-wider">GGS</span>
+                            <span className="text-[#FF6B00] text-[9px] font-bold tracking-widest">INFRASTRUCTURE</span>
+                        </div>
 
-                    <button
-                        onClick={() => setOpen(false)}
-                        className="text-white text-2xl hover:text-[#FF6B00] transition"
-                    >
-                        ✕
-                    </button>
-                </div>
-
-                {/* MOBILE LINKS */}
-                <div className="flex flex-col gap-6 px-6 py-6">
-                    {links.map((l) => (
-                        <NavLink
-                            key={l.name}
-                            to={l.path}
+                        <button
                             onClick={() => setOpen(false)}
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "text-[#FF6B00] font-semibold"
-                                    : "text-white hover:text-[#FF6B00] transition-colors"
-                            }
+                            className="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white rounded-full hover:bg-white/5 transition-colors focus:outline-none"
+                            aria-label="Close menu"
                         >
-                            {l.name}
-                        </NavLink>
-                    ))}
-                </div>
+                            ✕
+                        </button>
+                    </div>
+
+                    {/* Drawer Navigation Links */}
+                    <nav className="flex flex-col gap-2 px-4 py-6 overflow-y-auto">
+                        {links.map((l) => (
+                            <NavLink
+                                key={l.name}
+                                to={l.path}
+                                onClick={() => setOpen(false)}
+                                className={({ isActive }) =>
+                                    `flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all ${isActive
+                                        ? "bg-[#FF6B00]/10 text-[#FF6B00] border-l-4 border-[#FF6B00]"
+                                        : "text-slate-300 hover:bg-white/5 hover:text-white"
+                                    }`
+                                }
+                            >
+                                {l.name}
+                            </NavLink>
+                        ))}
+                    </nav>
+                </aside>
             </div>
         </>
     );

@@ -21,7 +21,7 @@ const Navbar = () => {
 
         document.body.style.overflow = "hidden";
 
-        const onKeyDown = (e) => {
+        const onKeyDown = (e: KeyboardEvent) => {
             if (e.key === "Escape") setOpen(false);
         };
         window.addEventListener("keydown", onKeyDown);

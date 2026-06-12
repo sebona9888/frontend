@@ -17,8 +17,8 @@ const Navbar = () => {
     return (
         <>
             {/* NAVBAR */}
-            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#243447]/95 backdrop-blur-md shadow-lg border-b border-white/20">
-                <div className="max-w-7xl mx-auto px-5 md:px-6 py-1 flex items-center justify-between">
+            <header className="fixed top-0 left-0 w-full z-[1000] bg-[#1A2530]/95 backdrop-blur-md shadow-xl border-b border-[#FF6B00]/20">
+                <div className="max-w-7xl mx-auto px-5 md:px-6 py-2 flex items-center justify-between">
 
                     {/* MOBILE HAMBURGER */}
                     <button
@@ -44,7 +44,7 @@ const Navbar = () => {
                         <img
                             src="/images/logo.jpg"
                             alt="GGS Logo"
-                            className="h-10 md:h-12 lg:h-14 w-auto object-contain"
+                            className="h-8 md:h-10 lg:h-12 w-auto object-contain"
                         />
 
                         <div>
@@ -52,7 +52,7 @@ const Navbar = () => {
                                 GGS
                             </h1>
 
-                            <p className="text-[#D28E28] text-[10px] md:text-xs font-semibold tracking-wider">
+                            <p className="text-[#FF6B00] text-[10px] md:text-xs font-semibold tracking-wider">
                                 INFRASTRUCTURE PLC
                             </p>
                         </div>
@@ -60,15 +60,15 @@ const Navbar = () => {
 
                     {/* DESKTOP MENU */}
                     <div className="hidden md:flex items-center gap-8">
-                        <nav className="flex gap-8 text-white font-medium">
+                        <nav className="flex gap-8 font-medium">
                             {links.map((l) => (
                                 <NavLink
                                     key={l.name}
                                     to={l.path}
                                     className={({ isActive }) =>
                                         isActive
-                                            ? "text-[#D28E28] transition-colors"
-                                            : "hover:text-[#D28E28] transition-colors"
+                                            ? "text-[#FF6B00] font-semibold transition-colors"
+                                            : "text-white hover:text-[#FF6B00] transition-colors"
                                     }
                                 >
                                     {l.name}
@@ -83,24 +83,24 @@ const Navbar = () => {
             {open && (
                 <div
                     onClick={() => setOpen(false)}
-                    className="fixed inset-0 bg-black/30 z-[1001]"
+                    className="fixed inset-0 bg-black/50 z-[1001]"
                 />
             )}
 
             {/* MOBILE MENU */}
             <div
-                className={`fixed top-0 left-0 h-full w-72 bg-[#2C3E50] z-[1002] transform transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"
+                className={`fixed top-0 left-0 h-full w-72 bg-[#222222] z-[1002] transform transition-transform duration-300 ${open ? "translate-x-0" : "-translate-x-full"
                     }`}
             >
                 {/* MENU HEADER */}
-                <div className="flex justify-between items-center px-5 py-5 border-b border-white/20">
+                <div className="flex justify-between items-center px-5 py-5 border-b border-[#FF6B00]/20">
                     <h2 className="text-white font-bold text-lg tracking-wide">
                         Menu
                     </h2>
 
                     <button
                         onClick={() => setOpen(false)}
-                        className="text-white text-2xl hover:text-[#D28E28] transition"
+                        className="text-white text-2xl hover:text-[#FF6B00] transition"
                     >
                         ✕
                     </button>
@@ -115,8 +115,8 @@ const Navbar = () => {
                             onClick={() => setOpen(false)}
                             className={({ isActive }) =>
                                 isActive
-                                    ? "text-[#D28E28] font-medium"
-                                    : "text-white hover:text-[#D28E28] transition-colors"
+                                    ? "text-[#FF6B00] font-semibold"
+                                    : "text-white hover:text-[#FF6B00] transition-colors"
                             }
                         >
                             {l.name}

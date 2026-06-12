@@ -2,137 +2,108 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer className="bg-[#111821] text-white border-t border-[#FF6B00]/10 mt-24">
+        <footer className="bg-[#002B5B] text-white mt-20">
 
-            {/* Top Accent Gradient Bar */}
-            <div className="h-1.5 bg-gradient-to-r from-[#FF6B00] via-[#ff8c3b] to-[#1A2530]" />
+            {/* TOP ACCENT */}
+            <div className="h-1 bg-[#D28E28]" />
 
-            <div className="max-w-7xl mx-auto px-6 py-16 sm:py-20">
+            <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-6 py-12 sm:py-14">
 
-                {/* Main Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16">
+                {/* GRID */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
 
-                    {/* Column 1: Brand Info (Takes 5 cols on desktop) */}
-                    <div className="md:col-span-5 text-center md:text-left flex flex-col items-center md:items-start">
+                    {/* COLUMN 1 - BRAND */}
+                    <div className="text-center sm:text-left">
 
-                        {/* Logo & Brand Name */}
-                        <div className="flex items-center gap-3 mb-5 select-none">
+                        {/* LOGO + BRAND */}
+                        <div className="flex flex-col sm:flex-row items-center sm:items-center gap-3 mb-4">
+
                             <img
                                 src="/images/logo.jpg"
                                 alt="GGS Logo"
-                                className="h-10 w-auto object-contain rounded-sm"
+                                className="h-10 sm:h-12 w-auto object-contain"
                             />
-                            <div className="flex flex-col text-left">
-                                <span className="text-white font-extrabold text-lg tracking-wider leading-none">
-                                    GGS
-                                </span>
-                                <span className="text-[#FF6B00] text-[9px] font-bold tracking-widest leading-none mt-1">
-                                    INFRASTRUCTURE PLC
-                                </span>
-                            </div>
+
+                            <h2 className="text-base sm:text-lg font-semibold text-white text-center sm:text-left">
+                                GGS Infrastructure PLC
+                            </h2>
+
                         </div>
 
-                        <p className="text-slate-400 text-sm leading-relaxed max-w-md">
+                        <p className="text-white/70 text-sm leading-relaxed px-2 sm:px-0">
                             GGS Infrastructure PLC delivers world-class civil engineering,
                             road construction, and bridge infrastructure across Ethiopia
                             with precision, safety, and innovation.
                         </p>
                     </div>
 
-                    {/* Column 2: Navigation Links (Takes 3 cols on desktop) */}
-                    <div className="md:col-span-3 text-center md:text-left">
-                        <h3 className="text-white font-semibold text-base uppercase tracking-wider mb-5">
+                    {/* COLUMN 2 - LINKS */}
+                    <div className="text-center sm:text-left">
+
+                        <h3 className="font-semibold mb-4 text-lg">
                             Quick Links
                         </h3>
-                        <nav className="grid grid-cols-2 gap-y-3 gap-x-4 text-sm text-slate-400 justify-center md:justify-start">
-                            {[
-                                { name: "Home", path: "/" },
-                                { name: "About", path: "/about" },
-                                { name: "Services", path: "/services" },
-                                { name: "Projects", path: "/projects" },
-                                { name: "Team", path: "/team" },
-                                { name: "Contact", path: "/contact" }
-                            ].map((link) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.path}
-                                    className="hover:text-[#FF6B00] hover:translate-x-1 transition-all duration-200 inline-block"
-                                >
-                                    {link.name}
-                                </Link>
-                            ))}
-                        </nav>
+
+                        <div className="grid grid-cols-2 gap-y-3 gap-x-6 text-sm text-white/70">
+
+                            <Link className="hover:text-[#D28E28] transition" to="/">Home</Link>
+                            <Link className="hover:text-[#D28E28] transition" to="/about">About</Link>
+                            <Link className="hover:text-[#D28E28] transition" to="/services">Services</Link>
+                            <Link className="hover:text-[#D28E28] transition" to="/projects">Projects</Link>
+                            <Link className="hover:text-[#D28E28] transition" to="/team">Team</Link>
+                            <Link className="hover:text-[#D28E28] transition" to="/contact">Contact</Link>
+
+                        </div>
                     </div>
 
-                    {/* Column 3: Contact Details (Takes 4 cols on desktop) */}
-                    <div className="md:col-span-4 text-center md:text-left">
-                        <h3 className="text-white font-semibold text-base uppercase tracking-wider mb-5">
+                    {/* COLUMN 3 - CONTACT */}
+                    <div className="text-center sm:text-left">
+
+                        <h3 className="font-semibold mb-4 text-lg">
                             Contact
                         </h3>
 
-                        <address className="not-italic text-slate-400 text-sm space-y-3 flex flex-col items-center md:items-start">
-                            {/* Address */}
-                            <span className="flex items-center gap-2.5">
-                                <svg className="w-5 h-5 text-[#FF6B00] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                                Addis Ababa, Ethiopia
-                            </span>
+                        <p className="text-white/70 text-sm leading-relaxed space-y-2">
+                            📍 Addis Ababa, Ethiopia <br />
+                            📞 +251 902 989 488 <br />
+                            ✉️ ggsinfra@gmail.com
+                        </p>
 
-                            {/* Phone Link */}
-                            <a href="tel:+251902989488" className="flex items-center gap-2.5 hover:text-[#FF6B00] transition-colors">
-                                <svg className="w-5 h-5 text-[#FF6B00] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        {/* SOCIAL ICONS */}
+                        <div className="flex justify-center sm:justify-start gap-3 mt-6">
+
+                            {/* Facebook */}
+                            <a className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] transition">
+                                <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                                    <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.9 0 1.9.1 1.9.1v2.1h-1.1c-1.1 0-1.4.7-1.4 1.4V12h2.4l-.4 2.9h-2v7A10 10 0 0 0 22 12z" />
                                 </svg>
-                                +251 902 989 488
                             </a>
 
-                            {/* Email Link */}
-                            <a href="mailto:ggsinfra@gmail.com" className="flex items-center gap-2.5 hover:text-[#FF6B00] transition-colors">
-                                <svg className="w-5 h-5 text-[#FF6B00] shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            {/* LinkedIn */}
+                            <a className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] transition">
+                                <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                                    <path d="M4 4h4v16H4zM6 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 6h4v2h.1c.6-1.2 2-2.2 4-2.2 4 0 5 2.5 5 6V20h-4v-6c0-1.5-.5-3-2.5-3S13 13 13 14.5V20h-4z" />
                                 </svg>
-                                ggsinfra@gmail.com
                             </a>
-                        </address>
 
-                        {/* Social Links */}
-                        <div className="flex justify-center md:justify-start gap-3 mt-6">
-                            {[
-                                { name: "Facebook", href: "https://facebook.com", path: "M22 12a10 10 0 1 0-11.5 9.9v-7h-2.2V12h2.2V9.8c0-2.2 1.3-3.4 3.3-3.4.9 0 1.9.1 1.9.1v2.1h-1.1c-1.1 0-1.4.7-1.4 1.4V12h2.4l-.4 2.9h-2v7A10 10 0 0 0 22 12z" },
-                                { name: "LinkedIn", href: "https://linkedin.com", path: "M4 4h4v16H4zM6 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm6 6h4v2h.1c.6-1.2 2-2.2 4-2.2 4 0 5 2.5 5 6V20h-4v-6c0-1.5-.5-3-2.5-3S13 13 13 14.5V20h-4z" },
-                                { name: "Telegram", href: "https://telegram.org", path: "M9 15l-1 5 4-3 5 3 6-18L1 10l8 2 14-8-14 11z" }
-                            ].map((social) => (
-                                <a
-                                    key={social.name}
-                                    href={social.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label={`Visit our ${social.name} page`}
-                                    className="w-10 h-10 flex items-center justify-center rounded-full border border-slate-700 hover:border-[#FF6B00] hover:bg-[#FF6B00] hover:text-white transition-all duration-300 group"
-                                >
-                                    <svg className="w-5 h-5 fill-slate-300 group-hover:fill-white transition-colors" viewBox="0 0 24 24">
-                                        <path d={social.path} />
-                                    </svg>
-                                </a>
-                            ))}
+                            {/* Telegram */}
+                            <a className="w-10 h-10 flex items-center justify-center rounded-full border border-white/20 hover:bg-[#D28E28] transition">
+                                <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24">
+                                    <path d="M9 15l-1 5 4-3 5 3 6-18L1 10l8 2 14-8-14 11z" />
+                                </svg>
+                            </a>
+
                         </div>
                     </div>
 
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="border-t border-slate-800/80 mt-16 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-xs">
-                    <div>
-                        © {new Date().getFullYear()} GGS Infrastructure PLC. All rights reserved.
-                    </div>
-                    <div>
-                        Designed & Developed by{" "}
-                        <span className="text-[#FF6B00] font-semibold hover:underline cursor-pointer">
-                            SEBONA HAILE
-                        </span>
-                    </div>
+                {/* BOTTOM BAR */}
+                <div className="border-t border-white/10 mt-10 pt-5 text-center text-white/50 text-xs">
+                    © 2026 GGS Infrastructure PLC • Designed & Developed by{" "}
+                    <span className="text-[#D28E28] font-semibold">
+                        SEBONA HAILE
+                    </span>
                 </div>
 
             </div>

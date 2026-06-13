@@ -20,6 +20,13 @@ const TeamCard = ({ member, index }: Props) => {
 
     if (!memberId) return null;
 
+    // Define which members need their photos aligned to the top
+    const topAdjusted = [
+        "ayanasa-abdisa",
+        "guta-jiregna",
+        "girma-haile"
+    ];
+
     return (
         <Link to={`/team/${memberId}`} className="block group">
             <motion.div
@@ -28,12 +35,18 @@ const TeamCard = ({ member, index }: Props) => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer active:scale-[0.98]"
             >
-                {/* IMAGE (Added object-top to prevent head cut-off) */}
+                {/* IMAGE */}
                 <div className="h-64 w-full overflow-hidden bg-gray-100">
                     <img
                         src={member.image || "https://via.placeholder.com/400"}
                         alt={member.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                        style={{
+                            // Only align to top if they are in the list, otherwise center it
+                            objectPosition: topAdjusted.includes(memberId)
+                                ? "center top"
+                                : "center center"
+                        }}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                 </div>
 

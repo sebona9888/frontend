@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-import TeamHero from "../components/team/TeamHero";
-import TeamGrid from "../components/team/TeamGrid";
+import TeamHero from "../api/team/TeamHero";
+import TeamGrid from "../api/team/TeamGrid";
 
 const Team = () => {
 

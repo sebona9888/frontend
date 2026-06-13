@@ -20,12 +20,16 @@ const TeamCard = ({ member, index }: Props) => {
 
     if (!memberId) return null;
 
-    // Define which members need their photos adjusted (using "center 15%" positioning)
-    const topAdjusted = [
-        "ayanasa-abdisa",
-        "guta-jiregna",
-        "girma-haile"
-    ];
+    // Custom alignment map for each person's unique photo aspect ratio
+    const positionMap: Record<string, string> = {
+        "sebona-haile": "center 5%",
+        "ayanasa-abdisa": "center 5%",
+        "guta-jiregna": "center 5%",
+        "girma-haile": "center 20%", // Custom shift for Girma so he is perfectly framed
+    };
+
+    // Use the custom position if defined, otherwise default to "center center"
+    const objectPosition = positionMap[memberId] || "center center";
 
     return (
         <Link to={`/team/${memberId}`} className="block group">
@@ -40,12 +44,7 @@ const TeamCard = ({ member, index }: Props) => {
                     <img
                         src={member.image || "https://via.placeholder.com/400"}
                         alt={member.name}
-                        style={{
-                            // Only align to "center 15%" if in list, otherwise "center center"
-                            objectPosition: topAdjusted.includes(memberId)
-                                ? "center 15%"
-                                : "center center"
-                        }}
+                        style={{ objectPosition }}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                 </div>

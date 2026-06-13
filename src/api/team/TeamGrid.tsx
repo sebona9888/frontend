@@ -38,8 +38,8 @@ const TeamGrid = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                // Fetch dynamic members from your backend
-                const res = await axios.get("http://localhost:5000/api/team");
+                // Fetch dynamic members from your Render backend URL
+                const res = await axios.get("https://ggs-backend-uad3.onrender.com/api/team");
 
                 console.log("API RESPONSE:", res.data);
 
@@ -91,7 +91,7 @@ const TeamGrid = () => {
                                 id: member.id,
                                 name: member.name,
                                 role: member.role,
-                                image: member.image || "", // Type-safe string fallback
+                                image: member.image || "",
                                 bio: member.bio
                             }}
                             index={index}

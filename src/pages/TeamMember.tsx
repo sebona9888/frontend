@@ -1,91 +1,67 @@
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { team as staticTeam } from "../api/team/teamData"; // Adjust path if needed
+import { team } from "../api/team/teamData";
 
+// Strict type definition
 interface Member {
-    id?: string;
+    id: string;
     _id?: string;
     name: string;
     role: string;
-    bio?: string;
-    image?: string;
-    phone?: string;
-    education?: string;
-    experience?: string;
-    skills?: string[];
-    highlights?: string[];
+    bio: string;
+    image: string;
+    phone: string;
+    education: string;
+    experience: string;
+    skills: string[];
+    highlights: string[];
 }
 
 const TeamMember = () => {
-    const { id } = useParams<{ id: string }>();
-    const [member, setMember] = useState<Member | null>(null);
-    const [loading, setLoading] = useState(true);
+    const { id } = useParams();
+
+    // 1. Find the static member during the initial render
+    const staticMember = team.find((m) => m.id === id);
+
+    // 2. Initialize the state with the static member if found (avoids calling setState inside useEffect)
+    const [member, setMember] = useState<Member | null>(staticMember || null);
+    const [loading, setLoading] = useState(!staticMember); // If static member exists, we are not loading
 
     useEffect(() => {
-        const staticMember = staticTeam.find((m) => m.id === id);
-        let cancelled = false;
+        // 3. Only fetch from backend if the member is NOT in the static data
+        if (!staticMember && id) {
+            const fetchMember = async () => {
+                try {
+                    const res = await axios.get(`https://ggs-backend-uad3.onrender.com/api/team/${id}`);
+                    const apiData = res.data?.data;
 
-        const scheduleStateUpdate = (update: () => void) => {
-            Promise.resolve().then(() => {
-                if (!cancelled) {
-                    update();
-                }
-            });
-        };
-
-        if (staticMember) {
-            scheduleStateUpdate(() => {
-                setMember(staticMember as Member);
-                setLoading(false);
-            });
-
-            return () => {
-                cancelled = true;
-            };
-        }
-
-        scheduleStateUpdate(() => {
-            setMember(null);
-            setLoading(true);
-        });
-
-        const fetchMember = async () => {
-            try {
-                const res = await axios.get(`http://localhost:5000/api/team/${id}`);
-                const apiData = res.data?.data;
-
-                if (!cancelled && apiData) {
-                    setMember({
-                        id: apiData._id || apiData.id || "",
-                        name: apiData.name,
-                        role: apiData.role,
-                        bio: apiData.bio,
-                        image: apiData.image,
-                        phone: apiData.phone,
-                        education: apiData.education,
-                        experience: apiData.experience,
-                        skills: apiData.skills,
-                        highlights: apiData.highlights,
-                    });
-                }
-            } catch (error) {
-                if (!cancelled) {
+                    if (apiData) {
+                        setMember({
+                            id: apiData._id || apiData.id || "",
+                            _id: apiData._id || "",
+                            name: apiData.name || "",
+                            role: apiData.role || "",
+                            bio: apiData.bio || "",
+                            image: apiData.image || "",
+                            phone: apiData.phone || "",
+                            education: apiData.education || "",
+                            experience: apiData.experience || "",
+                            skills: apiData.skills || [],
+                            highlights: apiData.highlights || [],
+                        } as Member);
+                    }
+                } catch (error) {
                     console.error("Failed to fetch member details from backend:", error);
-                }
-            } finally {
-                if (!cancelled) {
+                } finally {
                     setLoading(false);
                 }
-            }
-        };
+            };
 
-        fetchMember();
-
-        return () => {
-            cancelled = true;
-        };
-    }, [id]);
+            fetchMember();
+        }
+    }, [id, staticMember]);
 
     if (loading) {
         return (

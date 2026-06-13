@@ -20,7 +20,7 @@ const TeamCard = ({ member, index }: Props) => {
 
     if (!memberId) return null;
 
-    // Define which members need their photos aligned to the top
+    // Define which members need their photos adjusted (using "center 15%" positioning)
     const topAdjusted = [
         "ayanasa-abdisa",
         "guta-jiregna",
@@ -41,9 +41,9 @@ const TeamCard = ({ member, index }: Props) => {
                         src={member.image || "https://via.placeholder.com/400"}
                         alt={member.name}
                         style={{
-                            // Only align to top if they are in the list, otherwise center it
+                            // Only align to "center 15%" if in list, otherwise "center center"
                             objectPosition: topAdjusted.includes(memberId)
-                                ? "center top"
+                                ? "center 15%"
                                 : "center center"
                         }}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"

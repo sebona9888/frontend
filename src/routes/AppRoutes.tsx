@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import Home from "../pages/Home";
 import About from "../pages/About";
@@ -21,16 +21,28 @@ import ProjectDetails from "../pages/ProjectDetails";
 import Team from "../pages/Team";
 import TeamMember from "../pages/TeamMember";
 
-// ✅ ADD THIS IMPORT
 import MachineDetails from "../pages/service-details/MachineDetails";
 
+// ADMIN
+import Login from "../pages/Login";
+import Dashboard from "../pages/AdminDashboard";
+import ProtectedRoute from "../components/ProtectedRoute";
+
 const AppRoutes = () => {
+    const location = useLocation();
+
+    // Hide navbar/footer for admin pages
+    const hideLayout =
+        location.pathname.startsWith("/admin") ||
+        location.pathname === "/login";
+
     return (
         <>
-            <Navbar />
+            {/* PUBLIC LAYOUT ONLY */}
+            {!hideLayout && <Navbar />}
 
             <Routes>
-                {/* MAIN PAGES */}
+                {/* PUBLIC PAGES */}
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/services" element={<Services />} />
@@ -43,22 +55,54 @@ const AppRoutes = () => {
                 <Route path="/team" element={<Team />} />
                 <Route path="/team/:id" element={<TeamMember />} />
 
-                {/* SERVICES DETAILS */}
-                <Route path="/services/road-construction" element={<RoadConstruction />} />
-                <Route path="/services/building-construction" element={<BuildingConstruction />} />
-                <Route path="/services/water-infrastructure" element={<WaterInfrastructure />} />
-                <Route path="/services/electrical-installation" element={<ElectricalInstallation />} />
-                <Route path="/services/machinery-rental" element={<MachineryRental />} />
-                <Route path="/services/engineering-consultancy" element={<EngineeringConsultancy />} />
+                {/* SERVICE DETAILS */}
+                <Route
+                    path="/services/road-construction"
+                    element={<RoadConstruction />}
+                />
+                <Route
+                    path="/services/building-construction"
+                    element={<BuildingConstruction />}
+                />
+                <Route
+                    path="/services/water-infrastructure"
+                    element={<WaterInfrastructure />}
+                />
+                <Route
+                    path="/services/electrical-installation"
+                    element={<ElectricalInstallation />}
+                />
+                <Route
+                    path="/services/machinery-rental"
+                    element={<MachineryRental />}
+                />
+                <Route
+                    path="/services/engineering-consultancy"
+                    element={<EngineeringConsultancy />}
+                />
 
-                {/* MACHINERY DETAILS PAGE (NEW) */}
+                {/* MACHINERY DETAILS */}
                 <Route
                     path="/services/machinery/:name"
                     element={<MachineDetails />}
                 />
+
+                {/* AUTH */}
+                <Route path="/login" element={<Login />} />
+
+                {/* ADMIN DASHBOARD (PROTECTED) */}
+                <Route
+                    path="/admin"
+                    element={
+                        <ProtectedRoute>
+                            <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
             </Routes>
 
-            <Footer />
+            {/* PUBLIC FOOTER ONLY */}
+            {!hideLayout && <Footer />}
         </>
     );
 };

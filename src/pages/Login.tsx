@@ -12,24 +12,32 @@ export default function Login() {
 
         try {
             const res = await axios.post(
-                "http://localhost:5000/api/auth/login",
+                "http://localhost:5000/api/admin/login",
                 {
                     email,
                     password,
                 }
             );
 
+            // save token
             localStorage.setItem("token", res.data.token);
 
+            console.log("LOGIN SUCCESS:", res.data);
+
             navigate("/admin");
-        } catch (error) {
+        } catch (error: unknown) {
             console.error(error);
+
+            if (axios.isAxiosError(error)) {
+                console.error(error.response?.data);
+            }
+
             alert("Invalid email or password");
         }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <form
                 onSubmit={handleLogin}
                 className="bg-white p-8 rounded-lg shadow-lg w-96"
@@ -56,7 +64,7 @@ export default function Login() {
 
                 <button
                     type="submit"
-                    className="w-full bg-blue-600 text-white p-3 rounded"
+                    className="w-full bg-blue-600 text-white p-3 rounded hover:bg-blue-700"
                 >
                     Login
                 </button>

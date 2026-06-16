@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 type Member = {
-    _id?: string;
-    id?: string;
+    id: string;
     name: string;
     role: string;
     image: string;
@@ -16,23 +15,23 @@ type Props = {
 };
 
 const TeamCard = ({ member, index }: Props) => {
-    const memberId = member._id || member.id || "";
+    // ✅ ONLY use static id
+    const memberId = member.id;
 
     if (!memberId) return null;
 
-    // Custom alignment map for each person's unique photo aspect ratio
+    // Custom alignment map for each person's image
     const positionMap: Record<string, string> = {
         "sebona-haile": "center 5%",
         "ayanasa-abdisa": "center 5%",
         "guta-jiregna": "center 5%",
-        "girma-haile": "center 20%", // Custom shift for Girma so he is perfectly framed
+        "girma-haile": "center 20%",
     };
 
-    // Use the custom position if defined, otherwise default to "center center"
     const objectPosition = positionMap[memberId] || "center center";
 
     return (
-        <Link to={`/team/${memberId}`} className="block group">
+        <Link to={`/team/${memberId}`} className="block group w-full">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

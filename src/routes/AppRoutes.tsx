@@ -27,6 +27,7 @@ import MachineDetails from "../pages/service-details/MachineDetails";
 import Login from "../pages/Login";
 import Dashboard from "../pages/AdminDashboard";
 import ProtectedRoute from "../components/ProtectedRoute";
+import TeamAdmin from "../pages/admin/TeamAdmin";
 
 const AppRoutes = () => {
     const location = useLocation();
@@ -96,6 +97,14 @@ const AppRoutes = () => {
                     element={
                         <ProtectedRoute>
                             <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/admin/team"
+                    element={
+                        <ProtectedRoute>
+                            <TeamAdmin />
                         </ProtectedRoute>
                     }
                 />

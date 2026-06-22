@@ -8,7 +8,7 @@ const Hero = () => {
         <section
             className="relative min-h-screen flex items-center overflow-hidden bg-cover bg-center pt-24"
             style={{
-                backgroundImage: "url('/videos/about.mp4')",
+                backgroundImage: "url('/images/construction-materials.jpg')",
             }}
         >
             {/* Overlay */}

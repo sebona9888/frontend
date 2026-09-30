@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 interface Admin {
     _id: string;
@@ -34,8 +34,7 @@ export default function AdminDashboard() {
 
                 setAdmin(res.data);
             } catch (error) {
-                console.error("Admin fetch error:", error);
-
+                console.error("Error loading admin:", error);
                 localStorage.removeItem("token");
                 navigate("/login");
             } finally {
@@ -54,66 +53,92 @@ export default function AdminDashboard() {
     if (loading) {
         return (
             <div className="min-h-screen flex items-center justify-center">
-                <h2 className="text-xl font-semibold">Loading...</h2>
+                <p>Loading dashboard...</p>
             </div>
         );
     }
 
     return (
         <div className="min-h-screen bg-gray-100 p-8">
-            <div className="max-w-7xl mx-auto">
-                <div className="bg-white rounded-xl shadow-md p-6">
-                    <div className="flex justify-between items-center mb-8">
-                        <h1 className="text-3xl font-bold">
+            <div className="max-w-6xl mx-auto">
+
+                {/* Header */}
+                <div className="bg-white rounded-lg shadow p-6 mb-8 flex justify-between items-center">
+                    <div>
+                        <h1 className="text-3xl font-bold text-gray-800">
                             GGS Admin Dashboard
                         </h1>
 
-                        <button
-                            onClick={handleLogout}
-                            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
-                        >
-                            Logout
-                        </button>
+                        {admin && (
+                            <p className="text-gray-600 mt-2">
+                                Welcome, {admin.email}
+                            </p>
+                        )}
                     </div>
 
-                    <div className="mb-8">
-                        <p className="text-lg">
-                            Welcome,
-                            <span className="font-semibold ml-2">
-                                {admin?.email}
-                            </span>
+                    <button
+                        onClick={handleLogout}
+                        className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg transition"
+                    >
+                        Logout
+                    </button>
+                </div>
+
+                {/* Dashboard Cards */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                    {/* Team */}
+                    <button
+                        onClick={() => navigate("/admin/team")}
+                        className="bg-blue-100 hover:bg-blue-200 p-6 rounded-lg text-left transition cursor-pointer"
+                    >
+                        <h2 className="font-bold text-lg mb-2">
+                            Team
+                        </h2>
+                        <p className="text-gray-700">
+                            Manage team members
                         </p>
-                    </div>
+                    </button>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-blue-100 p-6 rounded-lg">
-                            <h2 className="font-bold text-lg mb-2">
-                                Team
-                            </h2>
-                            <p>Manage team members</p>
-                        </div>
+                    {/* Projects */}
+                    <button
+                        onClick={() => navigate("/admin/projects")}
+                        className="bg-green-100 hover:bg-green-200 p-6 rounded-lg text-left transition cursor-pointer"
+                    >
+                        <h2 className="font-bold text-lg mb-2">
+                            Projects
+                        </h2>
+                        <p className="text-gray-700">
+                            Manage projects
+                        </p>
+                    </button>
 
-                        <div className="bg-green-100 p-6 rounded-lg">
-                            <h2 className="font-bold text-lg mb-2">
-                                Projects
-                            </h2>
-                            <p>Manage projects</p>
-                        </div>
+                    {/* Careers */}
+                    <button
+                        onClick={() => navigate("/admin/careers")}
+                        className="bg-yellow-100 hover:bg-yellow-200 p-6 rounded-lg text-left transition cursor-pointer"
+                    >
+                        <h2 className="font-bold text-lg mb-2">
+                            Careers
+                        </h2>
+                        <p className="text-gray-700">
+                            Manage job posts
+                        </p>
+                    </button>
 
-                        <div className="bg-yellow-100 p-6 rounded-lg">
-                            <h2 className="font-bold text-lg mb-2">
-                                Careers
-                            </h2>
-                            <p>Manage job posts</p>
-                        </div>
+                    {/* Messages */}
+                    <button
+                        onClick={() => navigate("/admin/messages")}
+                        className="bg-purple-100 hover:bg-purple-200 p-6 rounded-lg text-left transition cursor-pointer"
+                    >
+                        <h2 className="font-bold text-lg mb-2">
+                            Messages
+                        </h2>
+                        <p className="text-gray-700">
+                            View contact messages
+                        </p>
+                    </button>
 
-                        <div className="bg-purple-100 p-6 rounded-lg">
-                            <h2 className="font-bold text-lg mb-2">
-                                Messages
-                            </h2>
-                            <p>View contact messages</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

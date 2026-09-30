@@ -1,4 +1,4 @@
-
+```tsx
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -76,4 +76,4 @@ const TeamCard = ({ member, index }: Props) => {
     );
 };
 
-export default TeamCard;
+export default TeamCard

@@ -1,4 +1,3 @@
-```tsx
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -21,19 +20,18 @@ const TeamCard = ({ member, index }: Props) => {
 
     if (!memberId) return null;
 
-    // Custom image positioning
+    // Custom alignment map for each person's image
     const positionMap: Record<string, string> = {
-        "sebona-haile": "center center",
-        "ayanasa-abdisa": "center center",
-        "guta-jiregna": "center center",
-        "girma-haile": "center center",
-        "beyisa-haile": "center center",
+        "sebona-haile": "center 5%",
+        "ayanasa-abdisa": "center 5%",
+        "guta-jiregna": "center 5%",
+        "girma-haile": "center 20%",
     };
 
     const objectPosition = positionMap[memberId] || "center center";
 
     return (
-        <Link to={`/ team / ${ memberId } `} className="block group w-full">
+        <Link to={`/team/${memberId}`} className="block group w-full">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -43,10 +41,7 @@ const TeamCard = ({ member, index }: Props) => {
                 {/* IMAGE */}
                 <div className="h-64 w-full overflow-hidden bg-gray-100">
                     <img
-                        src={
-                            member.image ||
-                            "https://via.placeholder.com/400"
-                        }
+                        src={member.image || "https://via.placeholder.com/400"}
                         alt={member.name}
                         style={{ objectPosition }}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
@@ -65,7 +60,6 @@ const TeamCard = ({ member, index }: Props) => {
 
                     <div className="mt-4 flex items-center justify-center gap-1 text-orange-600 font-semibold text-sm">
                         <span>View Profile</span>
-
                         <span className="transform group-hover:translate-x-1 transition-transform duration-200">
                             →
                         </span>
@@ -76,4 +70,4 @@ const TeamCard = ({ member, index }: Props) => {
     );
 };
 
-export default TeamCard
+export default TeamCard;

@@ -25,8 +25,7 @@ export const team = [
             "Worked from high school to university in technical roles"
         ],
 
-        image: "/images/sebona.jpg",
-
+        image: "https://res.cloudinary.com/dc1cr58z9/image/upload/photo_2025-04-17_20-18-00_mquaer",
         bio: `Engineer Sebona Haile is the Founder and General Manager of GSS Infrastructure PLC.
 
 He has over 10 years of experience in civil engineering, project management, infrastructure development, and technical systems. He is also skilled in full stack development and graphic design.
